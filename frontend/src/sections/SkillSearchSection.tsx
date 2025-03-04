@@ -41,8 +41,8 @@ export default function SkillSearchSection() {
     };
 
     return (
-        <div className="max-w-4xl mx-auto py-12 px-6 bg-white shadow-lg rounded-lg">
-            <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">Skill Search</h1>
+        <div className="max-w-4xl mx-auto py-12 px-6 bg-white shadow-xl rounded-lg">
+            <h1 className="text-4xl font-bold text-center text-gray-900 mb-6">Skill Search</h1>
 
             {/* Search Input */}
             <div className="flex space-x-3 mb-6">
@@ -51,11 +51,11 @@ export default function SkillSearchSection() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Enter a skill..."
-                    className="border border-gray-300 p-3 rounded-md flex-1 shadow-sm focus:ring-2 focus:ring-blue-400"
+                    className="border border-gray-300 p-3 rounded-md flex-1 shadow-sm focus:ring-2 focus:ring-blue-400 outline-none"
                 />
                 <button
                     onClick={addSkill}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-md transition font-semibold"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-md transition font-semibold shadow-md"
                 >
                     Add
                 </button>
@@ -64,7 +64,10 @@ export default function SkillSearchSection() {
             {/* Skills List */}
             <div className="flex flex-wrap gap-2 mb-6">
                 {skills.map((skill) => (
-                    <div key={skill} className="bg-gray-200 px-4 py-2 rounded-full flex items-center text-gray-700">
+                    <div
+                        key={skill}
+                        className="bg-gray-200 px-4 py-2 rounded-full flex items-center text-gray-700 shadow-sm"
+                    >
                         {skill}
                         <button
                             onClick={() => removeSkill(skill)}
@@ -79,7 +82,7 @@ export default function SkillSearchSection() {
             {/* Submit Button */}
             <button
                 onClick={handleSubmit}
-                className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-md w-full transition font-semibold"
+                className="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-md w-full transition font-semibold shadow-md"
             >
                 Submit
             </button>
@@ -93,10 +96,13 @@ export default function SkillSearchSection() {
 
             {/* Employees List */}
             <div className="mt-8">
-                {employees.length > 0 && <h2 className="text-2xl font-bold text-gray-700">Employees</h2>}
+                {employees.length > 0 && <h2 className="text-2xl font-bold text-gray-800">Employees</h2>}
                 <div className="space-y-4 mt-4">
                     {employees.map((employee) => (
-                    <div key={employee.id} className="border p-4 rounded-lg shadow-lg bg-gray-50">
+                        <div
+                            key={employee.id}
+                            className="border p-4 rounded-lg shadow-lg bg-gray-50 hover:shadow-xl transition"
+                        >
                             <h3 className="text-lg font-semibold text-gray-900">{employee.name}</h3>
                             <p className="text-gray-600">{employee.id}</p>
                             <p className="text-gray-600">{employee.bio}</p>

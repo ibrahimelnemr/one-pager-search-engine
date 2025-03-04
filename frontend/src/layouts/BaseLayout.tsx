@@ -4,11 +4,9 @@ import { ReactNode } from "react";
 
 export default function BaseLayout({ children }: { children: ReactNode }) {
     return (
-        <div className="min-h-screen flex flex-col bg-gray-50">
+        <div className="min-h-screen flex flex-col bg-gray-100">
             <Navbar />
-            <main className="flex-grow">
-                {children}
-            </main>
+            <main className="flex-grow flex flex-col">{children}</main>
             <Footer />
         </div>
     );
