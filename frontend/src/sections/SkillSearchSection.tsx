@@ -41,8 +41,10 @@ export default function SkillSearchSection() {
     };
 
     return (
-        <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-lg p-8 border border-gray-200">
-            <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-6">Skill Search</h1>
+        <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-gray-200 transition hover:shadow-2xl">
+            <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
+                Skill Search
+            </h1>
 
             {/* Search Input */}
             <div className="flex space-x-3 mb-6">
@@ -51,11 +53,11 @@ export default function SkillSearchSection() {
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
                     placeholder="Enter a skill..."
-                    className="w-full border border-gray-300 p-3 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
+                    className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg"
                 />
                 <button
                     onClick={addSkill}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md"
+                    className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
                 >
                     Add
                 </button>
@@ -66,7 +68,7 @@ export default function SkillSearchSection() {
                 {skills.map((skill) => (
                     <div
                         key={skill}
-                        className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center shadow-sm"
+                        className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center shadow-sm text-lg"
                     >
                         {skill}
                         <button
@@ -82,26 +84,28 @@ export default function SkillSearchSection() {
             {/* Submit Button */}
             <button
                 onClick={handleSubmit}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg w-full transition font-semibold shadow-md"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg w-full transition font-semibold shadow-md text-lg"
             >
-                Submit
+                Search
             </button>
 
             {/* Loading Spinner */}
             {loading && (
-                <div className="flex justify-center mt-4">
-                    <div className="w-8 h-8 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+                <div className="flex justify-center mt-6">
+                    <div className="w-10 h-10 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
                 </div>
             )}
 
             {/* Employees List */}
             <div className="mt-8">
-                {employees.length > 0 && <h2 className="text-2xl font-bold text-gray-800">Employees</h2>}
-                <div className="space-y-4 mt-4">
+                {employees.length > 0 && (
+                    <h2 className="text-2xl font-bold text-gray-800 mb-4">Employees</h2>
+                )}
+                <div className="space-y-4">
                     {employees.map((employee) => (
                         <div
                             key={employee.id}
-                            className="border p-5 rounded-lg shadow-md bg-gray-50 hover:shadow-lg transition"
+                            className="border p-6 rounded-xl shadow-md bg-gray-50 hover:shadow-lg transition"
                         >
                             <h3 className="text-lg font-semibold text-gray-900">{employee.name}</h3>
                             <p className="text-gray-600">{employee.bio}</p>
@@ -110,7 +114,7 @@ export default function SkillSearchSection() {
                                 href={`https://people.deloitte/profile/${employee.id}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 hover:underline"
+                                className="text-blue-600 hover:underline font-semibold"
                             >
                                 View Profile
                             </a>
