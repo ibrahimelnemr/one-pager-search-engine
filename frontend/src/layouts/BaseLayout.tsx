@@ -3,15 +3,13 @@ import Navbar from "@/components/Navbar";
 import { ReactNode } from "react";
 
 export default function BaseLayout({ children }: { children: ReactNode }) {
-
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-gray-50">
             <Navbar />
-            <main className="relative flex-grow">
+            <main className=" flex-grow flex flex-col">
                 {children}
             </main>
             <Footer />
         </div>
     );
-
 }

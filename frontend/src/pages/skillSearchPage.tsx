@@ -1,7 +1,7 @@
 import BaseLayout from "@/layouts/BaseLayout";
 import SkillSearchSection from "@/sections/SkillSearchSection";
 
-export default function Index() {
+export default function SkillsSearchPage() {
     return(
         <BaseLayout>
             <SkillSearchSection/>
