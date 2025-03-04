@@ -4,7 +4,8 @@ import SkillSearchSection from "@/sections/SkillSearchSection";
 export default function Index() {
     return(
         <BaseLayout>
-            <SkillSearchSection/>
+            {/* <SkillSearchSection/> */}
+            Home
         </BaseLayout>
     );
 
