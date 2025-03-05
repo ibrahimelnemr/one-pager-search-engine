@@ -5,7 +5,7 @@ const OnePagers = [
         username: "ielnemr",
         email: "ielnemr@deloitte.com",
         dpnProfileLink: "https://people.deloitte/profile/ielnemr",
-        profileImage: "",
+        profileImage: "https://raw.githubusercontent.com/ibrahimelnemr/one-pager-search-engine/refs/heads/main/frontend/public/images/Ibrahim%20El%20Nemr.jpg",
         name: "Ibrahim El Nemr",
         title: "Software Engineer",
         officialTitle: "Analyst",
