@@ -1,4 +1,4 @@
-export const RealOnePagerData = [
+const RealOnePagerData = [
     {
         username: "ielnemr",
         email: "ielnemr@deloitte.com",
@@ -31,3 +31,5 @@ export const RealOnePagerData = [
 
     }
 ]
+
+export default RealOnePagerData

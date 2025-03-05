@@ -1,4 +1,4 @@
-export const MockOnePagerData = [
+const MockOnePagerData = [
     {
         username: "jdoe",
         email: "jdoe@deloitte.com",
@@ -129,4 +129,4 @@ export const MockOnePagerData = [
     }
 ];
 
-
+export default MockOnePagerData;
