@@ -1,7 +1,7 @@
-export default function Footer() {
+export default function Footer({copyrightText}:{copyrightText:string}) {
     return (
         <footer className="bg-gray-800 text-gray-300 py-4 text-center text-sm mt-auto">
-            <p>&copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
+            <p>{copyrightText}</p>
         </footer>
     );
 }
