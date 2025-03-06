@@ -12,7 +12,7 @@ collection = db['profiles']
 
 @app.route('/')
 def home():
-    return "Use POST /search to find employees by skills."
+    return "Use POST /search to find employees by skills. EDIT1"
 
 @app.route('/search', methods=['POST'])
 def search():
@@ -41,4 +41,4 @@ def search():
 
 if __name__ == '__main__':
     print("Server is running...")
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)

@@ -19,3 +19,13 @@ To setup elastic search locally, run
 `docker run -d --name es-local -p 9200:9200 -e "discovery.type=single-node" -e "xpack.security.enabled=false" docker.elastic.co/elasticsearch/elasticsearch:8.17.2`
 
 Note that the elasticsearch version must be `8.17.2`
+
+## Setup with Docker
+
+To streamline setup, docker can be used
+
+`cd backend`
+
+`docker-compose up --build`
+
+The backend should then run on `localhost:5050`
