@@ -6,7 +6,7 @@ export default function SkillSearchSection() {
     const [employees, setEmployees] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
-    const baseUrl = "http://localhost:5000";
+    const baseUrl = "http://localhost:5050";
 
     const addSkill = () => {
         if (input.trim() && !skills.includes(input.trim())) {
