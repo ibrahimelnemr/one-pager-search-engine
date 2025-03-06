@@ -1,0 +1,7 @@
+flask
+jupyter
+ipykernel
+elasticsearch
+transformers
+torch
+numpy
