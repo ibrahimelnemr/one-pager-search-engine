@@ -56,5 +56,18 @@ frontend
 docker run -p 3000:3000 -e BACKEND_URL=http://localhost:5050 --name one-pager-search-engine-frontend ibrahimelnemr/one-pager-search-engine-frontend:latest
 ```
 
+## 3 - Push images to docker registry
 
+`docker login`
 
+`cd backend`
+
+`docker build -t ibrahimelnemr/one-pager-search-engine-backend:latest .`
+
+`docker push ibrahimelnemr/one-pager-search-engine-backend:latest`
+
+`cd frontend`
+
+`docker build -t ibrahimelnemr/one-pager-search-engine-frontend:latest .`
+
+`docker push ibrahimelnemr/one-pager-search-engine-frontend:latest`
