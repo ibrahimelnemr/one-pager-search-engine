@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    build: .
+    image: ibrahimelnemr/one-pager-search-engine-backend:latest
     ports:
       - "5050:5000"
     volumes:
@@ -19,9 +19,8 @@ services:
       - ES_JAVA_OPTS=-Xms512m -Xmx512m
       - xpack.security.enabled=false  
     ports:
-      - "9200:9200"  # Expose Elasticsearch REST API
-      - "9300:9300"  # Transport protocol
-
+      - "9200:9200"
+      - "9300:9300"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:9200"]
       interval: 10s

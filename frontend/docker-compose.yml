@@ -2,12 +2,12 @@ version: '3.8'
 
 services:
   frontend:
-    build: .
+    image: ibrahimelnemr/one-pager-search-engine-frontend:latest
     ports:
       - "3000:3000"
     volumes:
       - .:/app
-      - /app/node_modules  # Avoid conflicts between local & container dependencies
+      - /app/node_modules
     environment:
       - NODE_ENV=development
-
+      - BACKEND_URL=http://backend:5000

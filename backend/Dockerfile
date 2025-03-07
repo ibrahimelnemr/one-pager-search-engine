@@ -1,5 +1,8 @@
-# Use the correct Python version
+# Use a specific Python version
 FROM python:3.12.3
+
+# Ensure working directory exists
+RUN mkdir -p /app
 
 # Set the working directory inside the container
 WORKDIR /app

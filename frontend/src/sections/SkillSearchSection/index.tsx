@@ -1,3 +1,4 @@
+import { API_URL } from "@/data/ApiData";
 import React, { useState } from "react";
 
 export default function SkillSearchSection() {
@@ -6,7 +7,6 @@ export default function SkillSearchSection() {
     const [employees, setEmployees] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
-    const baseUrl = "http://localhost:5050";
 
     const addSkill = () => {
         if (input.trim() && !skills.includes(input.trim())) {
@@ -21,8 +21,11 @@ export default function SkillSearchSection() {
 
     const handleSubmit = async () => {
         setLoading(true);
+        
+        console.log(`process.env.NEXT_PUBLIC_BACKEND_URL: ${process.env.NEXT_PUBLIC_BACKEND_URL}`);
+
         try {
-            const response = await fetch(`${baseUrl}/search`, {
+            const response = await fetch(`${API_URL}/search`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ skills }),
