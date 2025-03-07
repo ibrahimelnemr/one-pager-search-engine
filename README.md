@@ -33,16 +33,17 @@ backend
 
 `cd backend`
 
-(note: replace `<es-host-url>` with actual elastic host deployment url)
+(note: replace `<localhost>` with actual elastic host deployment url)
 
-`ELASTICSEARCH_HOST=http://<es-host-url>:9200 docker compose up -d`
+`ELASTICSEARCH_HOST=http://localhost:9200 docker compose up -d`
 
 or 
 ```
-docker run -d -p 5050:5000 \
+docker run -p 5050:5000 \
   -v "$(pwd)":/app \
   -e FLASK_ENV=development \
-  -e ELASTICSEARCH_HOST=<http://es-host-url:9200> \
+  -e ELASTICSEARCH_HOST=<http://localhost:9200> \
+  --name one-pager-search-engine-backend \
   ibrahimelnemr/one-pager-search-engine-backend:latest
 ```
 
@@ -50,7 +51,7 @@ frontend
 
 `cd frontend`
 
-`docker run -p 3000:3000 --name frontend -e BACKEND_URL=http://localhost:5050 ibrahimelnemr/one-pager-search-engine-frontend:latest`
+`docker run -p 3000:3000 --name one-pager-search-engine-frontend -e BACKEND_URL=http://localhost:5050 ibrahimelnemr/one-pager-search-engine-frontend:latest`
 
 
 
