@@ -7,11 +7,11 @@ For docker
 
 `cd frontend`
 
-`docker build -t ibrahimelnemr/one-pager-search-engine-frontend:latest`
+`docker build -t ibrahimelnemr/one-pager-search-engine-frontend:latest .`
 
 `cd backend`
 
-`docker build -t ibrahimelnemr/one-pager-search-engine-backend:latest`
+`docker build -t ibrahimelnemr/one-pager-search-engine-backend:latest .`
 
 
 this should build each image. 
