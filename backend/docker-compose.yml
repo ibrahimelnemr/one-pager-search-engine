@@ -9,20 +9,4 @@ services:
       - .:/app
     environment:
       - FLASK_ENV=development
-    depends_on:
-      - elasticsearch
-
-  elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.2
-    environment:
-      - discovery.type=single-node
-      - ES_JAVA_OPTS=-Xms512m -Xmx512m
-      - xpack.security.enabled=false  
-    ports:
-      - "9200:9200"
-      - "9300:9300"
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:9200"]
-      interval: 10s
-      retries: 5
-      start_period: 20s
+      - ELASTICSEARCH_HOST=http://localhost:9200

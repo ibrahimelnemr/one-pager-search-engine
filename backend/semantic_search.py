@@ -2,6 +2,7 @@ from elasticsearch import Elasticsearch, exceptions as es_exceptions
 from transformers import BertTokenizer, BertModel
 import torch
 import numpy as np
+import os
 
 data_elastic = [
         {
@@ -93,13 +94,15 @@ class SemanticSearch:
         self.tokenizer = None
         self.model = None
         self.es = None
+        self.ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
+
 
         if USE_CLOUD_ELASTICSEARCH:
             self.es = Elasticsearch(cloud_id='69308a62925f4983ad0027b5a4e54a37:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDc0OTZlN2NmYjAyNzRjYmVhMmI2ZGYwYjM0N2EwZWE2JDBjZTgzY2YwMDg5MDRjYzZiMjZkZjcyNmFmZjIxMmQy', 
                             api_key="UTI4aEtKVUJXY0otSVhDektkQm46U2dSQmFJLVJROFNSbHRDRnVKMTI4QQ==")
         else:
             # Connect to Local Elasticsearch
-            self.es = Elasticsearch("http://localhost:9200")
+            self.es = Elasticsearch(self.ELASTICSEARCH_HOST)
             
         try:
             if self.es.ping():
