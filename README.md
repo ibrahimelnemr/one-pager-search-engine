@@ -51,3 +51,47 @@ frontend
 `cd frontend`
 
 `docker run -p 3000:3000 --name frontend -e BACKEND_URL=http://localhost:5050 ibrahimelnemr/one-pager-search-engine-frontend:latest`
+
+
+
+
+
+# Overview
+
+
+# Setup
+
+`docker login`
+
+`docker pull ibrahimelnemr/one-pager-search-engine-backend:latest`
+
+`docker pull ibrahimelnemr/one-pager-search-engine-frontend:latest`
+
+`docker images`
+
+to run either image 
+`cd backend`
+`docker-compose up -d`
+
+or
+`cd frontend`
+`docker-compose up -d`
+
+then to push changes to the registry
+
+# Rebuild the backend image
+`docker build -t ibrahimelnemr/one-pager-search-engine-backend:latest .`
+
+`docker push ibrahimelnemr/one-pager-search-engine-backend:latest`
+
+# Rebuild the frontend image
+`docker build -t ibrahimelnemr/one-pager-search-engine-frontend:latest .`
+
+`docker push ibrahimelnemr/one-pager-search-engine-frontend:latest`
+
+to pull recent changes
+
+`git pull origin main`
+`docker pull ibrahimelnemr/one-pager-search-engine-backend:latest`
+`docker pull ibrahimelnemr/one-pager-search-engine-frontend:latest`
+`docker-compose up -d`
