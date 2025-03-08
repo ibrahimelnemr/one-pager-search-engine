@@ -207,8 +207,19 @@ class SemanticSearch:
             print(result['_source']['name'], 
                     result['_source']['email'], 
                     result['_score'],
-                    result['_source']['technical_skills'])   
+                    result['_source']['technical_skills'])
         
+        results_obj = []
+        
+        for result in results:
+            results_obj.append({
+                "name": result['_source']['name'],
+                "email": result['_source']['email'],
+                "score": result['_score'],
+                "technical_skills": result['_source']['technical_skills']
+            })
+        
+        return results_obj
 
 
 def main():
