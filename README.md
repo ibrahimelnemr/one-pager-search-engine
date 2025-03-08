@@ -71,3 +71,33 @@ docker run -p 3000:3000 -e BACKEND_URL=http://localhost:5050 --name one-pager-se
 `docker build -t ibrahimelnemr/one-pager-search-engine-frontend:latest .`
 
 `docker push ibrahimelnemr/one-pager-search-engine-frontend:latest`
+
+## 4 - deploy to GCP
+
+`gcloud auth login`
+
+use link in browser to login; if gcloud is not installed, install with snap
+
+`gcloud config set project <your-gcp-project-id>`
+
+`gcloud services enable run.googleapis.com containerregistry.googleapis.com`
+
+`docker tag ibrahimelnemr/one-pager-search-engine-backend gcr.io/<your-gcp-project-id>/backend`
+
+`docker tag ibrahimelnemr/one-pager-search-engine-frontend gcr.io/<your-gcp-project-id>/frontend`
+
+`docker tag docker.elastic.co/elasticsearch/elasticsearch:8.17.2 gcr.io/<your-gcp-project-id>/elasticsearch`
+
+`docker push gcr.io/<your-gcp-project-id>/backend`
+
+`docker push gcr.io/<your-gcp-project-id>/frontend`
+
+`docker push gcr.io/<your-gcp-project-id>/elasticsearch`
+
+
+
+`gcloud run deploy backend --image gcr.io/<your-gcp-project-id>/backend --platform managed --region us-central1 --allow-unauthenticated --set-env-vars "FLASK_ENV=development,ELASTICSEARCH_HOST=http://elasticsearch:9200"`
+
+`gcloud run deploy frontend --image gcr.io/<your-gcp-project-id>/frontend --platform managed --region us-central1 --allow-unauthenticated --set-env-vars "BACKEND_URL=http://backend:5050"`
+
+`gcloud run deploy elasticsearch --image gcr.io/<your-gcp-project-id>/elasticsearch --platform managed --region us-central1 --allow-unauthenticated`
