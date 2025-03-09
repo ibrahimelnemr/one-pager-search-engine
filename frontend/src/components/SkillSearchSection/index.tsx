@@ -11,10 +11,9 @@ export default function SkillSearchSection() {
 
         setLoading(true);
         try {
-            const response = await fetch(`${API_URL}/search`, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ skills: input.trim() }), // Send as a single string
+            const response = await fetch(`${API_URL}/search?query=${input.trim()}`, {
+                method: "GET",
+                headers: { "Content-Type": "application/json" }
             });
 
             if (response.ok) {

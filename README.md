@@ -1,5 +1,8 @@
 # Overview
 
+# Deployment
+
+
 # Test locally
 
 To test backend locally
@@ -44,6 +47,14 @@ now run the images as follows
 elastic search
 ```
 docker run --name elasticsearch-one-pager -p 9200:9200 -p 9300:9300 \
+  -e "discovery.type=single-node" \
+  -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
+  -e "xpack.security.enabled=false" \
+  docker.elastic.co/elasticsearch/elasticsearch:8.17.2
+```
+
+```
+docker run --name elasticsearch-one-pager -p 9200:9200 -p 9300:9300 -p 9200:8080 \
   -e "discovery.type=single-node" \
   -e "ES_JAVA_OPTS=-Xms512m -Xmx512m" \
   -e "xpack.security.enabled=false" \

@@ -4,101 +4,113 @@ from pymongo import MongoClient
 from semantic_search import SemanticSearch
 from elasticsearch import Elasticsearch, exceptions as es_exceptions
 import os
+import json  # Import json module
 from transformers import BertTokenizer, BertModel
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
-USE_CLOUD_ELASTICSEARCH = False
-
+USE_CLOUD_ELASTICSEARCH = True
 ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
+CACHE_FILE = "profiles_cache.json"  # File to store cached profiles
+
+def load_profiles_from_cache():
+    """Load profiles from the cache file if MongoDB is unavailable."""
+    try:
+        with open(CACHE_FILE, "r") as f:
+            print("Loading profiles from cache...")
+            return json.load(f)
+    except FileNotFoundError:
+        print("Cache file not found.")
+    except json.JSONDecodeError:
+        print("Cache file is corrupted.")
+    
+    return []  # Return empty list if cache is missing/corrupt
+
+def save_profiles_to_cache(profiles):
+    """Save profiles to a cache file."""
+    try:
+        with open(CACHE_FILE, "w") as f:
+            json.dump(profiles, f, indent=4)
+        print("Profiles saved to cache successfully.")
+    except Exception as e:
+        print(f"Error saving profiles to cache: {e}")
 
 def ss_setup():
+    global ss, mongo_collection, mongo_client, profiles_list
 
-    global ss, mongo_collection, mongo_client
-
+    # Elasticsearch setup
     if USE_CLOUD_ELASTICSEARCH:
-        es = Elasticsearch(cloud_id='69308a62925f4983ad0027b5a4e54a37:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDc0OTZlN2NmYjAyNzRjYmVhMmI2ZGYwYjM0N2EwZWE2JDBjZTgzY2YwMDg5MDRjYzZiMjZkZjcyNmFmZjIxMmQy', 
-                        api_key="UTI4aEtKVUJXY0otSVhDektkQm46U2dSQmFJLVJROFNSbHRDRnVKMTI4QQ==")
+        es = Elasticsearch(cloud_id='223d9b37960f435d8e1e0c7aa5e79432:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGJmNDA5NTIwYzM5YjRkYWZiNGZmYzAwYTA3ZjY2MzI5JGQ1MmU3OTkxYmEwZjQ3OWNiZGJmNmY5MDFmNjM3OWNm', 
+                        api_key="b3ZURGZKVUJlZy11VUlNNndrZS06ZWxRSXR1bTZRUHFhRWJycldmdUlfdw==")
     else:
-        # Connect to Local Elasticsearch
         es = Elasticsearch(ELASTICSEARCH_HOST)
-        
+    
     try:
         if es.ping():
-            print("Connected to Elasticsearch")
-            print(es.info())
+            print("✅ Connected to Elasticsearch")
         else:
-            print("Elasticsearch connection failed")
+            print("❌ Elasticsearch connection failed")
     except es_exceptions.ConnectionError as e:
-        print(f"Elasticsearch Connection Error: {e}")
+        print(f"❌ Elasticsearch Connection Error: {e}")
 
     # MongoDB connection setup
     try:
-        print("Setting up mongodb")
+        print("Setting up MongoDB...")
         mongo_client = MongoClient('mongodb+srv://dmaged:pX0YqddPVl4OqGeW@cluster1.zylou.mongodb.net/')
         db = mongo_client['profile_db']
         mongo_collection = db['profiles']
-        print("MongoDB Connected SUCCESSFULLY")
-    except Exception as e:
-        print("Error setting up mongodb")
-        print(e)
+        print("✅ MongoDB Connected SUCCESSFULLY")
 
-    # Fetch all documents from the collection
-    profiles_list = list(mongo_collection.find({}))
+        # Fetch all documents from the collection
+        profiles_list = list(mongo_collection.find({}))
 
-    # Optionally, remove ObjectId to make it JSON serializable
-    for profile in profiles_list:
+        # Convert ObjectId to string for JSON compatibility
+        for profile in profiles_list:
             profile["_id"] = str(profile["_id"])
-            print(profile["name"], profile["email"], profile["technical_skills"])
+        
+        # Save profiles to cache
+        save_profiles_to_cache(profiles_list)
+
+    except Exception as e:
+        print(f"❌ Error connecting to MongoDB: {e}")
+        mongo_collection = None
+        print("Loading profiles from cache...")
+        profiles_list = load_profiles_from_cache()  # Load from cache if MongoDB fails
 
     # Initialize BERT model and tokenizer
     model_directory = "./bert-base-uncased"
-
-    # tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
     tokenizer = BertTokenizer.from_pretrained(model_directory)
-
-    # tokenizer.save_pretrained(model_directory)
-
-    # model = BertModel.from_pretrained('bert-base-uncased')
     model = BertModel.from_pretrained(model_directory)
 
-# model.save_pretrained(model_directory)
-
-# Semantic search setup
-
+    # Semantic search setup
     try:
         ss = SemanticSearch(USE_CLOUD_ELASTICSEARCH=False, tokenizer=tokenizer, model=model, es=es)
-        print("SemanticSearch set up SUCCESSFULLY")
+        print("✅ SemanticSearch set up SUCCESSFULLY")
     except Exception as e:
-        print("Error setting up semanticsearch")
-        print(e)
+        print(f"❌ Error setting up SemanticSearch: {e}")
 
 @app.route('/')
 def home():
-    return "Use POST /search to find employees by skills. EDIT2"
+    return jsonify(profiles_list)
 
-@app.route('/search', methods=['POST'])
+@app.route('/search', methods=['GET'])
 def search():
-    data = request.get_json()
-    skills = data.get('skills', [])
+    query = request.args.get('query')
 
-    if not skills:
-        return jsonify({'error': 'Skills list is required'}), 400
+    if not query:
+        return jsonify({'error': 'Query parameter is required'}), 400
 
-    first_skill = skills[0]  # Use only the first skill
-    
-    results = ss.query(first_skill)
-    
+    results = ss.query(query)
+
     print("search() - Results obtained")
-    print(jsonify(results))
-    
     return jsonify(results)
 
+
 if __name__ == '__main__':
-    print("Server is running...")
-    print("Setting up elasticsearch")
+    print("🚀 Server is starting...")
+    print("🔧 Setting up Elasticsearch and MongoDB")
     ss_setup()
-    print("Semantic Search set up successfully")
+    print("✅ Semantic Search setup complete")
 
     app.run(host="0.0.0.0", port=5050, debug=True)
