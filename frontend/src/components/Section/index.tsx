@@ -89,20 +89,21 @@ function SearchBar({
   onChange: (value: string) => void;
 }) {
   return (
-    <div className="flex w-full max-w-3xl mx-auto">
+    <div className="relative flex w-full max-w-3xl mx-auto">
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="flex-1 border border-gray-300 p-4 rounded-l-full shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
+        className="flex-1 bg-white/80 backdrop-blur-md border border-gray-300 p-4 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 text-gray-900 outline-none"
       />
-      <button className="bg-blue-600 text-white px-6 rounded-r-full font-semibold shadow-md text-lg">
-        Filter
+      <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full font-semibold shadow-md text-lg hover:bg-blue-700 transition-all">
+        🔍
       </button>
     </div>
   );
 }
+
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
