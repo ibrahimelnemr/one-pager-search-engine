@@ -1,4 +1,4 @@
-import React, { useState, ReactNode } from "react";
+import React, { useState } from "react";
 import MockOnePagerData from "@/data/MockOnePagerData";
 import { API_URL } from "@/data/ApiData";
 
@@ -37,35 +37,31 @@ export function BrowseSection() {
     <Section>
       {/* Section Header */}
       <div className="text-center mb-10">
-        <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
-          Basic Search
+        <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
+          Find the Right Talent
         </h2>
       </div>
 
       {/* Search Bars */}
-      <div className="flex flex-col space-y-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
         <SearchBar
-          placeholder="Filter by Technology Skills..."
+          placeholder="Technology Skills"
           value={techSkillFilter}
           onChange={setTechSkillFilter}
         />
         <SearchBar
-          placeholder="Filter by Industry Experience..."
+          placeholder="Industry Experience"
           value={industryFilter}
           onChange={setIndustryFilter}
         />
         <SearchBar
-          placeholder="Filter by Official Title..."
+          placeholder="Official Title"
           value={officialTitleFilter}
           onChange={setOfficialTitleFilter}
         />
+        <SearchBar placeholder="Name" value={nameFilter} onChange={setNameFilter} />
         <SearchBar
-          placeholder="Filter by Name..."
-          value={nameFilter}
-          onChange={setNameFilter}
-        />
-        <SearchBar
-          placeholder="Filter by Certificates..."
+          placeholder="Certificates"
           value={certificateFilter}
           onChange={setCertificateFilter}
         />
@@ -77,8 +73,6 @@ export function BrowseSection() {
   );
 }
 
-
-
 function SearchBar({
   placeholder,
   value,
@@ -89,39 +83,35 @@ function SearchBar({
   onChange: (value: string) => void;
 }) {
   return (
-    <div className="relative flex w-full max-w-3xl mx-auto">
+    <div className="relative flex w-full">
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="flex-1 bg-white/80 backdrop-blur-md border border-gray-300 p-4 rounded-full shadow-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 text-gray-900 outline-none"
+        className="w-full bg-white/80 backdrop-blur-md border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 text-gray-900 outline-none"
       />
-      <button className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-blue-600 text-white px-6 py-2 rounded-full font-semibold shadow-md text-lg hover:bg-blue-700 transition-all">
-        🔍
-      </button>
     </div>
   );
 }
 
-
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="py-16">
-      <div className="w-full px-6">{children}</div>
+    <section className="py-16 px-6">
+      <div className="max-w-screen-2xl mx-auto">{children}</div>
     </section>
   );
 }
 
 function EmployeeList({ employees }: { employees: any[] }) {
   return (
-    <div className="flex flex-wrap justify-center gap-6 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
       {employees.length > 0 ? (
         employees.map((employee, index) => (
           <EmployeeCard key={index} employee={employee} />
         ))
       ) : (
-        <p className="text-center text-gray-500 text-lg mt-4">
+        <p className="text-center text-gray-500 text-lg mt-4 col-span-full">
           No employees match the filters.
         </p>
       )}
@@ -131,43 +121,34 @@ function EmployeeList({ employees }: { employees: any[] }) {
 
 function EmployeeCard({ employee }: { employee: any }) {
   return (
-    <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-64 border border-gray-200 hover:border-gray-300">
+    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 hover:border-gray-300">
       {/* Profile Image */}
-      <div className="relative w-24 h-24">
+      <div className="relative w-28 h-28">
         <img
           src={employee.profileImage}
           alt={employee.name}
-          className="w-24 h-24 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
+          className="w-28 h-28 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
       {/* Name and Title */}
-      <h3 className="text-lg font-semibold mt-4 text-gray-900">{employee.name}</h3>
-      <p className="text-sm text-gray-500 mt-1 truncate w-56">
-        {employee.title} | {employee.officialTitle}
-      </p>
-
-      {/* Cost Center */}
-      <p className="text-sm text-gray-600 mt-2 truncate w-56">
-        {employee.costCenter}
-      </p>
-
-      {/* Divider */}
-      <div className="w-10 border-b-2 border-gray-300 my-3"></div>
+      <h3 className="text-xl font-semibold mt-4 text-gray-900">{employee.name}</h3>
+      <p className="text-md text-gray-500 mt-1">{employee.officialTitle}</p>
 
       {/* Skills */}
-      <div className="text-sm text-gray-700 mt-2 w-56 truncate">
-        <strong className="text-gray-800">Business Skills:</strong> {employee.businessSkills}
-      </div>
-
-      <div className="text-sm text-gray-700 mt-2 w-56 truncate">
-        <strong className="text-gray-800">Tech Skills:</strong> {employee.technologySkills}
+      <div className="mt-4">
+        <p className="text-sm text-gray-600">
+          <strong>Tech Skills:</strong> {employee.technologySkills}
+        </p>
+        <p className="text-sm text-gray-600">
+          <strong>Business Skills:</strong> {employee.businessSkills}
+        </p>
       </div>
 
       {/* Profile Link */}
       <a
         href={employee.dpnProfileLink}
-        className="mt-5 w-full bg-blue-600 text-white font-semibold text-md py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 text-center"
+        className="mt-5 w-full bg-blue-600 text-white font-semibold text-md py-3 px-6 rounded-xl hover:bg-blue-700 transition duration-300"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -176,7 +157,6 @@ function EmployeeCard({ employee }: { employee: any }) {
     </div>
   );
 }
-
 
 export function SkillSearchSection() {
   const [input, setInput] = useState<string>("");
@@ -207,22 +187,22 @@ export function SkillSearchSection() {
 
   return (
     <Section>
-      <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
-        AI Search
+      <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
+        AI-Powered Search
       </h1>
 
       {/* Search Input */}
-      <div className="flex justify-center items-center space-x-4 w-full mb-6">
+      <div className="flex justify-center items-center space-x-4 w-full max-w-3xl mx-auto mb-8">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Enter a skill..."
-          className="w-3/5 border border-gray-300 p-4 rounded-full shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
+          className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
         />
         <button
           onClick={handleSubmit}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition font-semibold shadow-md text-lg"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
         >
           Search
         </button>
