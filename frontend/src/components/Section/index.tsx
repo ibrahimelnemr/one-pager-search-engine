@@ -4,7 +4,7 @@ import { API_URL } from "@/data/ApiData";
 
 export function BrowseSection() {
   return (
-    <Section employees={MockOnePagerData}>
+    <Section>
       {/* Section Header */}
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
@@ -14,16 +14,16 @@ export function BrowseSection() {
           Explore the profiles of our talented professionals.
         </p>
       </div>
+      <EmployeeList employees={MockOnePagerData} />
     </Section>
   );
 }
 
-export function Section({ children, employees }: { children: ReactNode; employees: any[] }) {
+export function Section({ children }: { children: ReactNode }) {
   return (
     <section className="py-16">
       <div className="w-full px-6">
         {children}
-        <EmployeeList employees={employees} />
       </div>
     </section>
   );
@@ -115,23 +115,23 @@ export function SkillSearchSection() {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-8 border border-gray-200 transition hover:shadow-2xl">
+    <Section>
       <h1 className="text-4xl font-extrabold text-center text-gray-900 mb-8 tracking-tight">
-        Skill Search
+        AI Search
       </h1>
 
       {/* Search Input */}
-      <div className="flex space-x-3 mb-6">
+      <div className="flex justify-center items-center space-x-4 w-full mb-6">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Enter a skill..."
-          className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg"
+          className="w-3/5 border border-gray-300 p-4 rounded-full shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
         />
         <button
           onClick={handleSubmit}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-full transition font-semibold shadow-md text-lg"
         >
           Search
         </button>
@@ -151,6 +151,6 @@ export function SkillSearchSection() {
           <EmployeeList employees={employees} />
         </div>
       )}
-    </div>
+    </Section>
   );
 }
