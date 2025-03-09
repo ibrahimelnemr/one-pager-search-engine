@@ -103,7 +103,8 @@ const MockOnePagerData = [
         - Conducted business process reengineering for an energy company, improving efficiency by 20%.
         - Developed interactive dashboards in Tableau for data-driven decision-making.`,
         selectedClients: "Fortune 500 Tech Firms, Global Insurance Companies"
-    }
+    },
+    
 ];
 
 export default MockOnePagerData;

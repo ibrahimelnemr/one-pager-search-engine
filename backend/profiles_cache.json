@@ -1,152 +1,268 @@
 [
     {
-        "_id": "doc3",
-        "name": "Alice Johnson",
-        "email": "alice@example.com",
-        "technical_skills": [
-            "C++",
-            "C#",
-            ".NET"
-        ],
-        "industry_skills": [
-            "Gaming",
-            "Software Development"
-        ],
-        "bio": "Software engineer with a strong background in gaming and software development using C++ and .NET."
-    },
-    {
-        "_id": "doc5",
-        "name": "Charlie Davis",
-        "email": "charlie@example.com",
-        "technical_skills": [
-            "PHP",
-            "Laravel",
-            "MySQL"
-        ],
-        "industry_skills": [
-            "Web Development",
-            "Marketing"
-        ],
-        "bio": "Web developer specializing in PHP and Laravel, with experience in marketing technology."
-    },
-    {
-        "_id": "doc9",
-        "name": "George Harris",
-        "email": "george@example.com",
-        "technical_skills": [
-            "Go",
-            "Kubernetes",
-            "Docker"
-        ],
-        "industry_skills": [
-            "Cloud Computing",
-            "DevOps"
-        ],
-        "bio": "DevOps engineer with expertise in Go, Kubernetes, and Docker, focusing on cloud computing solutions."
-    },
-    {
-        "_id": "doc10",
-        "name": "Hannah White",
-        "email": "hannah@example.com",
-        "technical_skills": [
-            "HTML",
-            "CSS",
-            "JavaScript",
-            "Vue.js"
-        ],
-        "industry_skills": [
-            "Web Development",
-            "Design"
-        ],
-        "bio": "Front-end developer and designer with a passion for creating beautiful and responsive web applications."
-    },
-    {
-        "_id": "doc4",
-        "name": "Bob Brown",
-        "email": "bob@example.com",
-        "technical_skills": [
-            "Ruby",
-            "Rails",
-            "JavaScript"
-        ],
-        "industry_skills": [
-            "Education",
-            "Startups"
-        ],
-        "bio": "Full-stack developer with a passion for building educational platforms and working with startups."
-    },
-    {
-        "_id": "doc6",
-        "name": "Diana Evans",
-        "email": "diana@example.com",
-        "technical_skills": [
-            "Python",
-            "Machine Learning",
-            "TensorFlow"
-        ],
-        "industry_skills": [
-            "Healthcare",
-            "Research"
-        ],
-        "bio": "Machine learning engineer with a focus on healthcare applications and research projects."
-    },
-    {
-        "_id": "doc7",
-        "name": "Ethan Foster",
-        "email": "ethan@example.com",
-        "technical_skills": [
-            "JavaScript",
-            "React",
-            "Node.js"
-        ],
-        "industry_skills": [
-            "Finance",
-            "Fintech"
-        ],
-        "bio": "Front-end developer with expertise in React and Node.js, working primarily in the fintech sector."
-    },
-    {
-        "_id": "doc8",
-        "name": "Fiona Green",
-        "email": "fiona@example.com",
-        "technical_skills": [
-            "Swift",
-            "Objective-C",
-            "iOS Development"
-        ],
-        "industry_skills": [
-            "Mobile Development",
-            "Entertainment"
-        ],
-        "bio": "iOS developer with a strong background in mobile development and entertainment applications."
-    },
-    {
-        "_id": "doc2",
-        "name": "Jane Smith",
-        "email": "jane@example.com",
-        "technical_skills": [
-            "Java",
-            "Spring",
-            "Hibernate"
-        ],
-        "industry_skills": [
-            "E-commerce",
-            "Retail"
-        ],
-        "bio": "Senior Java developer with extensive experience in e-commerce and retail industries."
-    },
-    {
-        "_id": "doc1",
+        "username": "jdoe",
+        "email": "jdoe@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/jdoe",
+        "profileImage": "https://i.pravatar.cc/300?img=12",
         "name": "John Doe",
-        "email": "john@example.com",
-        "technical_skills": [
-            "Python",
-            "JavaScript"
-        ],
-        "industry_skills": [
-            "Finance",
-            "Healthcare"
-        ],
-        "bio": "Experienced software developer with a background in finance and healthcare."
+        "title": "Senior Software Engineer",
+        "officialTitle": "Consultant",
+        "costCenter": "Technology & Transformation, Cloud Engineering",
+        "businessSkills": "Leadership, Problem Solving, Communication",
+        "technologySkills": "Java, Python, React, Node.js, AWS, Docker, Kubernetes",
+        "industryExperience": "Finance, Healthcare, Retail",
+        "education": "MSc in Computer Science, Stanford University",
+        "languages": "English, Spanish",
+        "certificates": "AWS Certified Solutions Architect, Google Cloud Professional Developer",
+        "summaryOfProfessionalExperience": "John is a highly skilled software engineer with 7 years of experience in cloud computing, microservices, and full-stack development. He has led multiple enterprise-scale projects and specializes in designing scalable architectures.",
+        "relevantExperience": "Senior Software Engineer, Deloitte\n- Designed and implemented scalable microservices architecture using AWS Lambda and DynamoDB.\n- Led a team in developing an AI-driven recommendation system for a major healthcare provider.",
+        "selectedClients": "Major US Banks, Fortune 500 Retailers"
+    },
+    {
+        "username": "asmith",
+        "email": "asmith@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/asmith",
+        "profileImage": "https://i.pravatar.cc/300?img=12",
+        "name": "Alice Smith",
+        "title": "Data Scientist",
+        "officialTitle": "Senior Consultant",
+        "costCenter": "AI & Analytics, Data Science",
+        "businessSkills": "Analytical Thinking, Data Visualization, Critical Thinking",
+        "technologySkills": "Python, R, SQL, TensorFlow, Power BI, Apache Spark",
+        "industryExperience": "Banking, Retail, Telecommunications",
+        "education": "PhD in Data Science, MIT",
+        "languages": "English, French",
+        "certificates": "Microsoft Certified: Azure Data Scientist Associate",
+        "summaryOfProfessionalExperience": "Alice is an experienced data scientist specializing in machine learning, big data analytics, and AI-driven business insights. She has worked with Fortune 500 companies to implement predictive modeling solutions.",
+        "relevantExperience": "Senior Data Scientist, Deloitte\n- Developed predictive models for customer churn analysis, increasing retention rates by 25%.\n- Led a data pipeline optimization project that improved ETL efficiency by 50%.",
+        "selectedClients": "Leading Telecom Providers, Global Retail Chains"
+    },
+    {
+        "username": "mjohnson",
+        "email": "mjohnson@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/mjohnson",
+        "profileImage": "https://i.pravatar.cc/300?img=2",
+        "name": "Michael Johnson",
+        "title": "Cybersecurity Consultant",
+        "officialTitle": "Manager",
+        "costCenter": "Cyber Risk, Security & Privacy",
+        "businessSkills": "Risk Management, Incident Response, Compliance",
+        "technologySkills": "Network Security, SIEM, Identity & Access Management, SOC Operations",
+        "industryExperience": "Financial Services, Government, Healthcare",
+        "education": "BSc in Information Security, Harvard University",
+        "languages": "English, German",
+        "certificates": "CISSP, CISM, CEH",
+        "summaryOfProfessionalExperience": "Michael is a cybersecurity expert with a deep understanding of risk management, vulnerability assessment, and compliance. He has helped organizations fortify their security posture and respond to cyber threats.",
+        "relevantExperience": "Cybersecurity Manager, Deloitte\n- Led security audits for Fortune 500 clients, ensuring compliance with GDPR and ISO 27001.\n- Developed and implemented a Zero Trust security model for a global financial institution.",
+        "selectedClients": "Global Investment Firms, Government Agencies"
+    },
+    {
+        "username": "rgarcia",
+        "email": "rgarcia@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/rgarcia",
+        "profileImage": "https://i.pravatar.cc/300?img=12",
+        "name": "Rachel Garcia",
+        "title": "Cloud Solutions Architect",
+        "officialTitle": "Senior Manager",
+        "costCenter": "Cloud Engineering, Digital Transformation",
+        "businessSkills": "Cloud Strategy, Solution Architecture, IT Infrastructure",
+        "technologySkills": "AWS, Azure, Google Cloud, Terraform, Kubernetes, DevOps",
+        "industryExperience": "Retail, Logistics, Automotive",
+        "education": "MBA in IT Management, Yale University",
+        "languages": "English, Italian",
+        "certificates": "AWS Certified Solutions Architect – Professional, Azure Solutions Architect Expert",
+        "summaryOfProfessionalExperience": "Rachel is an expert in cloud strategy and infrastructure modernization, helping enterprises transition to cloud-native architectures while optimizing costs and performance.",
+        "relevantExperience": "Cloud Solutions Architect, Deloitte\n- Designed and implemented a hybrid cloud architecture for a multinational retailer.\n- Developed automated infrastructure provisioning using Terraform and Kubernetes.",
+        "selectedClients": "Automobile Manufacturers, Global Logistics Providers"
+    },
+    {
+        "username": "tlee",
+        "email": "tlee@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/tlee",
+        "profileImage": "https://i.pravatar.cc/300?img=12",
+        "name": "Thomas Lee",
+        "title": "Business Analyst",
+        "officialTitle": "Consultant",
+        "costCenter": "Strategy & Operations, Business Transformation",
+        "businessSkills": "Process Improvement, Market Research, Stakeholder Communication",
+        "technologySkills": "Tableau, Power BI, Excel, SQL, BPMN",
+        "industryExperience": "Energy, Insurance, Technology",
+        "education": "BBA in Business Analytics, University of Chicago",
+        "languages": "English, Mandarin",
+        "certificates": "Certified Business Analysis Professional (CBAP)",
+        "summaryOfProfessionalExperience": "Thomas is a results-driven business analyst with expertise in process optimization, data analysis, and strategic decision-making. He has advised multinational clients on business process improvements.",
+        "relevantExperience": "Business Analyst, Deloitte\n- Conducted business process reengineering for an energy company, improving efficiency by 20%.\n- Developed interactive dashboards in Tableau for data-driven decision-making.",
+        "selectedClients": "Fortune 500 Tech Firms, Global Insurance Companies"
+    },
+    {
+        "username": "mbrown",
+        "email": "mbrown@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/mbrown",
+        "profileImage": "https://i.pravatar.cc/300?img=14",
+        "name": "Matthew Brown",
+        "title": "DevOps Engineer",
+        "officialTitle": "Senior Consultant",
+        "costCenter": "Cloud & DevOps Engineering",
+        "businessSkills": "Automation, CI/CD, Performance Optimization",
+        "technologySkills": "Jenkins, Ansible, Kubernetes, Docker, Terraform, AWS",
+        "industryExperience": "E-commerce, SaaS, Finance",
+        "education": "BSc in Software Engineering, UC Berkeley",
+        "languages": "English, Portuguese",
+        "certificates": "Certified Kubernetes Administrator (CKA), AWS DevOps Engineer",
+        "summaryOfProfessionalExperience": "Matthew specializes in cloud automation, infrastructure as code, and CI/CD pipeline development, helping organizations accelerate software delivery and improve system reliability.",
+        "relevantExperience": "DevOps Engineer, Deloitte\n- Implemented CI/CD pipelines using Jenkins and Kubernetes, reducing deployment times by 40%.\n- Automated cloud infrastructure provisioning with Terraform and AWS CloudFormation.",
+        "selectedClients": "Top FinTech Startups, Global SaaS Providers"
+    },
+    {
+        "username": "williams",
+        "email": "williams@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/williams",
+        "profileImage": "https://i.pravatar.cc/300?img=15",
+        "name": "William Davis",
+        "title": "Product Manager",
+        "officialTitle": "Director",
+        "costCenter": "Product Strategy, Innovation",
+        "businessSkills": "Agile Methodologies, Go-to-Market Strategy, Cross-functional Leadership",
+        "technologySkills": "JIRA, Confluence, SQL, A/B Testing",
+        "industryExperience": "FinTech, SaaS, Retail",
+        "education": "MBA in Product Management, Columbia University",
+        "languages": "English, Japanese",
+        "certificates": "Certified Scrum Product Owner (CSPO)",
+        "summaryOfProfessionalExperience": "William has led product teams to deliver scalable digital solutions in the fintech and SaaS space, driving innovation and user engagement.",
+        "relevantExperience": "Product Manager, Deloitte\n- Spearheaded a mobile banking app redesign, increasing customer engagement by 35%.",
+        "selectedClients": "Top 10 Global Banks"
+    },
+    {
+        "username": "kpatel",
+        "email": "kpatel@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/kpatel",
+        "profileImage": "https://i.pravatar.cc/300?img=16",
+        "name": "Kiran Patel",
+        "title": "Machine Learning Engineer",
+        "officialTitle": "Senior Consultant",
+        "costCenter": "AI & Analytics, Machine Learning",
+        "businessSkills": "Data Modeling, Statistical Analysis, Business Intelligence",
+        "technologySkills": "Python, TensorFlow, PyTorch, SQL, Hadoop, Spark",
+        "industryExperience": "Finance, Healthcare, E-commerce",
+        "education": "MSc in Artificial Intelligence, Carnegie Mellon University",
+        "languages": "English, Hindi",
+        "certificates": "AWS Certified Machine Learning Specialist",
+        "summaryOfProfessionalExperience": "Kiran is a machine learning engineer with expertise in deep learning, NLP, and AI-driven automation. He has developed scalable AI models for enterprise applications.",
+        "relevantExperience": "Senior Machine Learning Engineer, Deloitte\n- Developed an AI-powered fraud detection system for a global bank, reducing fraudulent transactions by 30%.\n- Built and deployed scalable recommendation algorithms for an e-commerce platform.",
+        "selectedClients": "Global Banks, Major Online Retailers"
+    },
+    {
+        "username": "jmartinez",
+        "email": "jmartinez@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/jmartinez",
+        "profileImage": "https://i.pravatar.cc/300?img=17",
+        "name": "Jessica Martinez",
+        "title": "UX/UI Designer",
+        "officialTitle": "Consultant",
+        "costCenter": "Digital Experience, User Research",
+        "businessSkills": "User-Centered Design, Wireframing, Design Thinking",
+        "technologySkills": "Figma, Adobe XD, HTML, CSS, JavaScript",
+        "industryExperience": "Technology, Retail, Financial Services",
+        "education": "BFA in Graphic Design, Rhode Island School of Design",
+        "languages": "English, Spanish",
+        "certificates": "Google UX Design Certificate",
+        "summaryOfProfessionalExperience": "Jessica specializes in designing intuitive user experiences for web and mobile applications, ensuring accessibility and user satisfaction.",
+        "relevantExperience": "UX/UI Designer, Deloitte\n- Led the redesign of a financial services app, improving customer retention by 20%.\n- Conducted usability testing for a global retail e-commerce platform.",
+        "selectedClients": "Fortune 500 Tech Firms, Leading Online Retailers"
+    },
+    {
+        "username": "dlopez",
+        "email": "dlopez@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/dlopez",
+        "profileImage": "https://i.pravatar.cc/300?img=18",
+        "name": "Daniel Lopez",
+        "title": "Blockchain Engineer",
+        "officialTitle": "Manager",
+        "costCenter": "Emerging Technologies, Blockchain Solutions",
+        "businessSkills": "Smart Contracts, Cryptography, Distributed Systems",
+        "technologySkills": "Solidity, Ethereum, Hyperledger, Rust, Go",
+        "industryExperience": "Finance, Supply Chain, Healthcare",
+        "education": "MSc in Blockchain Technologies, University College London",
+        "languages": "English, Portuguese",
+        "certificates": "Certified Blockchain Solutions Architect",
+        "summaryOfProfessionalExperience": "Daniel has deep expertise in blockchain development, helping organizations implement decentralized applications and secure transactions.",
+        "relevantExperience": "Blockchain Engineer, Deloitte\n- Developed a decentralized identity verification system for a financial institution.\n- Led the integration of blockchain for supply chain transparency in logistics.",
+        "selectedClients": "Cryptocurrency Startups, Logistics Giants"
+    },
+    {
+        "username": "knguyen",
+        "email": "knguyen@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/knguyen",
+        "profileImage": "https://i.pravatar.cc/300?img=19",
+        "name": "Kevin Nguyen",
+        "title": "Cloud Security Engineer",
+        "officialTitle": "Senior Consultant",
+        "costCenter": "Cyber Risk, Cloud Security",
+        "businessSkills": "Security Architecture, Risk Assessment, Threat Modeling",
+        "technologySkills": "AWS Security, Azure Security, IAM, SIEM, Firewalls",
+        "industryExperience": "Government, Financial Services, Healthcare",
+        "education": "BSc in Cybersecurity, University of Southern California",
+        "languages": "English, Vietnamese",
+        "certificates": "AWS Security Specialty, CISSP",
+        "summaryOfProfessionalExperience": "Kevin specializes in cloud security, ensuring enterprise cloud environments are secure from cyber threats and compliance risks.",
+        "relevantExperience": "Cloud Security Engineer, Deloitte\n- Designed a multi-cloud security framework for a government agency.\n- Implemented Zero Trust security models for financial services firms.",
+        "selectedClients": "Federal Government Agencies, Fortune 500 Banks"
+    },
+    {
+        "username": "lrodriguez",
+        "email": "lrodriguez@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/lrodriguez",
+        "profileImage": "https://i.pravatar.cc/300?img=20",
+        "name": "Laura Rodriguez",
+        "title": "Digital Marketing Strategist",
+        "officialTitle": "Consultant",
+        "costCenter": "Marketing & Communications, Digital Strategy",
+        "businessSkills": "SEO, Social Media Strategy, Campaign Management",
+        "technologySkills": "Google Analytics, HubSpot, Adobe Marketing Cloud, SQL",
+        "industryExperience": "Retail, E-commerce, Hospitality",
+        "education": "MBA in Digital Marketing, NYU Stern",
+        "languages": "English, French",
+        "certificates": "Google Ads Certification, HubSpot Inbound Marketing",
+        "summaryOfProfessionalExperience": "Laura is a digital marketing expert with experience in developing data-driven strategies to drive brand engagement and customer acquisition.",
+        "relevantExperience": "Digital Marketing Strategist, Deloitte\n- Optimized SEO strategy for an e-commerce giant, increasing organic traffic by 40%.\n- Managed social media advertising campaigns, achieving a 3x ROI.",
+        "selectedClients": "Global Retail Brands, Luxury Hotel Chains"
+    },
+    {
+        "username": "schang",
+        "email": "schang@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/schang",
+        "profileImage": "https://i.pravatar.cc/300?img=21",
+        "name": "Sophia Chang",
+        "title": "Software Development Manager",
+        "officialTitle": "Senior Manager",
+        "costCenter": "Technology & Engineering, Software Development",
+        "businessSkills": "Project Management, Agile Development, Technical Leadership",
+        "technologySkills": "Java, Python, React, Docker, Kubernetes",
+        "industryExperience": "Technology, Media, Entertainment",
+        "education": "MSc in Computer Science, University of Toronto",
+        "languages": "English, Mandarin",
+        "certificates": "PMP, AWS Certified Solutions Architect",
+        "summaryOfProfessionalExperience": "Sophia has extensive experience leading software development teams, driving innovation, and delivering high-quality digital products.",
+        "relevantExperience": "Software Development Manager, Deloitte\n- Managed a team of 20+ engineers to develop a video streaming platform.\n- Led cloud migration efforts for a major media conglomerate.",
+        "selectedClients": "Streaming Services, Fortune 500 Tech Companies"
+    },
+    {
+        "username": "bjackson",
+        "email": "bjackson@deloitte.com",
+        "dpnProfileLink": "https://people.deloitte/profile/bjackson",
+        "profileImage": "https://i.pravatar.cc/300?img=22",
+        "name": "Brandon Jackson",
+        "title": "IT Infrastructure Specialist",
+        "officialTitle": "Manager",
+        "costCenter": "IT Operations, Infrastructure Management",
+        "businessSkills": "IT Service Management, Network Administration, System Optimization",
+        "technologySkills": "Linux, Windows Server, Cisco Networking, VMware, CloudOps",
+        "industryExperience": "Healthcare, Manufacturing, Energy",
+        "education": "BSc in Information Systems, University of Michigan",
+        "languages": "English, German",
+        "certificates": "Cisco Certified Network Professional (CCNP), ITIL Foundation",
+        "summaryOfProfessionalExperience": "Brandon has deep expertise in IT infrastructure, ensuring seamless system performance and security for enterprise networks.",
+        "relevantExperience": "IT Infrastructure Manager, Deloitte\n- Designed high-availability IT infrastructure for a multinational healthcare company.\n- Led disaster recovery planning for a global energy provider.",
+        "selectedClients": "Healthcare Giants, Fortune 500 Manufacturers"
     }
 ]

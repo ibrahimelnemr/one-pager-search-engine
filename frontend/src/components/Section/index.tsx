@@ -147,7 +147,6 @@ export function SkillSearchSection() {
       {/* Employees List */}
       {employees.length > 0 && (
         <div className="mt-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">Employees</h2>
           <EmployeeList employees={employees} />
         </div>
       )}

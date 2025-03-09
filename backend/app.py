@@ -85,7 +85,7 @@ def ss_setup():
 
     # Semantic search setup
     try:
-        ss = SemanticSearch(USE_CLOUD_ELASTICSEARCH=False, tokenizer=tokenizer, model=model, es=es)
+        ss = SemanticSearch(USE_CLOUD_ELASTICSEARCH=False, tokenizer=tokenizer, model=model, es=es, data_elastic=profiles_list)
         print("✅ SemanticSearch set up SUCCESSFULLY")
     except Exception as e:
         print(f"❌ Error setting up SemanticSearch: {e}")
