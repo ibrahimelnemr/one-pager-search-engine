@@ -89,33 +89,11 @@ data_elastic = [
 
 class SemanticSearch:
 
-    def __init__(self, USE_CLOUD_ELASTICSEARCH):
-
-        self.tokenizer = None
-        self.model = None
-        self.es = None
-        self.ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
-
-
-        if USE_CLOUD_ELASTICSEARCH:
-            self.es = Elasticsearch(cloud_id='69308a62925f4983ad0027b5a4e54a37:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDc0OTZlN2NmYjAyNzRjYmVhMmI2ZGYwYjM0N2EwZWE2JDBjZTgzY2YwMDg5MDRjYzZiMjZkZjcyNmFmZjIxMmQy', 
-                            api_key="UTI4aEtKVUJXY0otSVhDektkQm46U2dSQmFJLVJROFNSbHRDRnVKMTI4QQ==")
-        else:
-            # Connect to Local Elasticsearch
-            self.es = Elasticsearch(self.ELASTICSEARCH_HOST)
-            
-        try:
-            if self.es.ping():
-                print("Connected to Elasticsearch")
-                print(self.es.info())
-            else:
-                print("Elasticsearch connection failed")
-        except es_exceptions.ConnectionError as e:
-            print(f"Elasticsearch Connection Error: {e}")
-
-        # Initialize BERT model and tokenizer
-        self.tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
-        self.model = BertModel.from_pretrained('bert-base-uncased')
+    def __init__(self, USE_CLOUD_ELASTICSEARCH, tokenizer, model, es):
+        self.USE_CLOUD_ELASTICSEARCH = USE_CLOUD_ELASTICSEARCH
+        self.tokenizer = tokenizer
+        self.model = model
+        self.es = es
 
         self.create_index()
         self.preprocess_and_index(data_elastic)
