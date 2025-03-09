@@ -48,6 +48,12 @@ class SemanticSearch:
                     'technologySkills': profile['technologySkills'],
                     'industryExperience': profile['industryExperience'],
                     'summaryOfProfessionalExperience': profile['summaryOfProfessionalExperience'],
+                    'profileImage': profile['profileImage'],
+                    'officialTitle': profile['officialTitle'],
+                    'title': profile['title'],
+                    'costCenter': profile['costCenter'],
+                    'businessSkills': profile['businessSkills'],
+                    'dpnProfileLink': profile['dpnProfileLink'],
                     'embedding': embedding.tolist()
                 })
                 print(f"Indexed profile {doc_email} successfully")
@@ -124,7 +130,13 @@ class SemanticSearch:
                 "score": result['_score'],
                 "technologySkills": result['_source']['technologySkills'],
                 "industryExperience": result['_source']['industryExperience'],
-                "summaryOfProfessionalExperience": result['_source']['summaryOfProfessionalExperience']
+                "summaryOfProfessionalExperience": result['_source']['summaryOfProfessionalExperience'],
+                "profileImage": result['_source']['profileImage'],
+                "officialTitle": result['_source']['officialTitle'],
+                "title": result['_source']['title'],
+                "costCenter": result['_source']['costCenter'],
+                "businessSkills": result['_source']['businessSkills'],
+                "dpnProfileLink": result['_source']['dpnProfileLink'],
             })
         
         return results_obj
