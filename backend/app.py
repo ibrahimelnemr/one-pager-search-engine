@@ -15,7 +15,7 @@ ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
 
 def ss_setup():
 
-    global ss
+    global ss, mongo_collection, mongo_client
 
     if USE_CLOUD_ELASTICSEARCH:
         es = Elasticsearch(cloud_id='69308a62925f4983ad0027b5a4e54a37:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJDc0OTZlN2NmYjAyNzRjYmVhMmI2ZGYwYjM0N2EwZWE2JDBjZTgzY2YwMDg5MDRjYzZiMjZkZjcyNmFmZjIxMmQy', 
@@ -32,6 +32,25 @@ def ss_setup():
             print("Elasticsearch connection failed")
     except es_exceptions.ConnectionError as e:
         print(f"Elasticsearch Connection Error: {e}")
+
+    # MongoDB connection setup
+    try:
+        print("Setting up mongodb")
+        mongo_client = MongoClient('mongodb+srv://dmaged:pX0YqddPVl4OqGeW@cluster1.zylou.mongodb.net/')
+        db = mongo_client['profile_db']
+        mongo_collection = db['profiles']
+        print("MongoDB Connected SUCCESSFULLY")
+    except Exception as e:
+        print("Error setting up mongodb")
+        print(e)
+
+    # Fetch all documents from the collection
+    profiles_list = list(mongo_collection.find({}))
+
+    # Optionally, remove ObjectId to make it JSON serializable
+    for profile in profiles_list:
+            profile["_id"] = str(profile["_id"])
+            print(profile["name"], profile["email"], profile["technical_skills"])
 
     # Initialize BERT model and tokenizer
     model_directory = "./bert-base-uncased"

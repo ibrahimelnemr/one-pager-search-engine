@@ -59,7 +59,7 @@ backend
 (note: replace `<localhost>` with actual elastic host deployment url)
 
 ```
-docker run -p 5050:5000 \
+docker run -p 5050:5000 --rm \
   -v "$(pwd)":/app \
   -e FLASK_ENV=development \
   -e ELASTICSEARCH_HOST=http://localhost:9200 \
@@ -72,8 +72,10 @@ frontend
 `cd frontend`
 
 ```
-docker run -p 3000:3000 -e BACKEND_URL=http://localhost:5050 --name one-pager-search-engine-frontend ibrahimelnemr/one-pager-search-engine-frontend:latest
+docker run -p 3000:3000 --rm -v "$(pwd)":/app -e BACKEND_URL=http://localhost:5050 --name one-pager-search-engine-frontend ibrahimelnemr/one-pager-search-engine-frontend:latest
 ```
+
+Note that --rm and -v "$(pwd)":/app are to ensure the container is removed after use and that live changes are shown for development, these commands can be removed in production deployment
 
 ## 3 - Push images to docker registry
 

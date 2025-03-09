@@ -1,26 +1,75 @@
 import React from "react";
-import EmployeeCard from "../EmployeeCard";
 import MockOnePagerData from "@/data/MockOnePagerData";
 
 export default function BrowseSection() {
     return (
-        <section className="py-12">
+        <section className="py-16 bg-gray-50">
             <div className="container mx-auto px-6 sm:px-12 lg:px-24">
                 {/* Section Header */}
-                <h2 className="text-3xl font-semibold text-gray-800 text-center">
-                    Meet Our Experts
-                </h2>
-                <p className="text-gray-600 text-center mt-2">
-                    Explore the profiles of our talented professionals.
-                </p>
+                <div className="text-center mb-10">
+                    <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
+                        Meet Our Experts
+                    </h2>
+                    <p className="text-lg text-gray-600 mt-2">
+                        Explore the profiles of our talented professionals.
+                    </p>
+                </div>
 
-                {/* Employee Cards Grid */}
-                <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {/* Employee Cards Flexbox */}
+                <div className="flex flex-wrap justify-center gap-6">
                     {MockOnePagerData.map((employee, index) => (
                         <EmployeeCard key={index} employee={employee} />
                     ))}
                 </div>
             </div>
         </section>
+    );
+}
+
+function EmployeeCard({ employee }: { employee: any }) {
+    return (
+        <div className="group bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-xs border border-gray-200 hover:border-gray-300">
+            {/* Profile Image */}
+            <div className="relative w-24 h-24">
+                <img
+                    src={employee.profileImage}
+                    alt={employee.name}
+                    className="w-24 h-24 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
+                />
+            </div>
+
+            {/* Name and Title */}
+            <h3 className="text-lg font-semibold mt-4 text-gray-900">{employee.name}</h3>
+            <p className="text-sm text-gray-500 mt-1 truncate w-56" title={`${employee.title} | ${employee.officialTitle}`}>
+                {employee.title} | {employee.officialTitle}
+            </p>
+
+            {/* Cost Center */}
+            <p className="text-sm text-gray-600 mt-2 truncate w-56" title={employee.costCenter}>
+                {employee.costCenter}
+            </p>
+
+            {/* Divider */}
+            <div className="w-10 border-b-2 border-gray-300 my-3"></div>
+
+            {/* Skills */}
+            <div className="text-sm text-gray-700 mt-2 w-56 truncate" title={employee.businessSkills?.join(", ")}>
+                <strong className="text-gray-800">Business Skills:</strong> {employee.businessSkills?.join(", ")}
+            </div>
+
+            <div className="text-sm text-gray-700 mt-2 w-56 truncate" title={employee.technologySkills?.join(", ")}>
+                <strong className="text-gray-800">Tech Skills:</strong> {employee.technologySkills?.join(", ")}
+            </div>
+
+            {/* Profile Link - More Prominent */}
+            <a
+                href={employee.dpnProfileLink}
+                className="mt-5 w-full bg-blue-600 text-white font-semibold text-md py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 text-center"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                View Profile
+            </a>
+        </div>
     );
 }
