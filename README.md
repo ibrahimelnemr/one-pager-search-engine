@@ -3,6 +3,16 @@
 
 # Setup
 
+## 0 - backend setup
+
+download the model file
+
+`cd backend`
+
+`cd bert-base-uncased`
+
+`wget -O pytorch_model.bin 'https://huggingface.co/google-bert/bert-base-uncased/resolve/main/pytorch_model.bin?download=true'`
+
 ## 1 - Build docker images
 
 For docker
