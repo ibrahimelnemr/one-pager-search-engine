@@ -3,28 +3,91 @@ import MockOnePagerData from "@/data/MockOnePagerData";
 import { API_URL } from "@/data/ApiData";
 
 export function BrowseSection() {
+  const [techSkillFilter, setTechSkillFilter] = useState("");
+  const [industryFilter, setIndustryFilter] = useState("");
+  const [summaryFilter, setSummaryFilter] = useState("");
+
+  // Filter employees based on input values
+  const filteredEmployees = MockOnePagerData.filter((employee) => {
+    return (
+      (!techSkillFilter ||
+        employee.technologySkills
+          .toLowerCase()
+          .includes(techSkillFilter.toLowerCase())) &&
+      (!industryFilter ||
+        employee.industryExperience
+          .toLowerCase()
+          .includes(industryFilter.toLowerCase())) &&
+      (!summaryFilter ||
+        employee.summaryOfProfessionalExperience
+          .toLowerCase()
+          .includes(summaryFilter.toLowerCase()))
+    );
+  });
+
   return (
     <Section>
       {/* Section Header */}
       <div className="text-center mb-10">
         <h2 className="text-4xl font-bold text-gray-900 tracking-tight">
-          Meet Our Experts
+          Basic Search
         </h2>
-        <p className="text-lg text-gray-600 mt-2">
-          Explore the profiles of our talented professionals.
-        </p>
       </div>
-      <EmployeeList employees={MockOnePagerData} />
+
+      {/* Search Bars */}
+      <div className="flex flex-col space-y-4 mb-6">
+        <SearchBar
+          placeholder="Filter by Technology Skills..."
+          value={techSkillFilter}
+          onChange={setTechSkillFilter}
+        />
+        <SearchBar
+          placeholder="Filter by Industry Experience..."
+          value={industryFilter}
+          onChange={setIndustryFilter}
+        />
+        <SearchBar
+          placeholder="Filter by Summary of Experience..."
+          value={summaryFilter}
+          onChange={setSummaryFilter}
+        />
+      </div>
+
+      {/* Employee List */}
+      <EmployeeList employees={filteredEmployees} />
     </Section>
   );
 }
 
-export function Section({ children }: { children: ReactNode }) {
+function SearchBar({
+  placeholder,
+  value,
+  onChange,
+}: {
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div className="flex w-full max-w-3xl mx-auto">
+      <input
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        className="flex-1 border border-gray-300 p-4 rounded-l-full shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
+      />
+      <button className="bg-blue-600 text-white px-6 rounded-r-full font-semibold shadow-md text-lg">
+        Filter
+      </button>
+    </div>
+  );
+}
+
+function Section({ children }: { children: React.ReactNode }) {
   return (
     <section className="py-16">
-      <div className="w-full px-6">
-        {children}
-      </div>
+      <div className="w-full px-6">{children}</div>
     </section>
   );
 }
@@ -32,9 +95,15 @@ export function Section({ children }: { children: ReactNode }) {
 function EmployeeList({ employees }: { employees: any[] }) {
   return (
     <div className="flex flex-wrap justify-center gap-6 w-full">
-      {employees.map((employee, index) => (
-        <EmployeeCard key={index} employee={employee} />
-      ))}
+      {employees.length > 0 ? (
+        employees.map((employee, index) => (
+          <EmployeeCard key={index} employee={employee} />
+        ))
+      ) : (
+        <p className="text-center text-gray-500 text-lg mt-4">
+          No employees match the filters.
+        </p>
+      )}
     </div>
   );
 }
@@ -53,12 +122,12 @@ function EmployeeCard({ employee }: { employee: any }) {
 
       {/* Name and Title */}
       <h3 className="text-lg font-semibold mt-4 text-gray-900">{employee.name}</h3>
-      <p className="text-sm text-gray-500 mt-1 truncate w-56" title={`${employee.title} | ${employee.officialTitle}`}>
+      <p className="text-sm text-gray-500 mt-1 truncate w-56">
         {employee.title} | {employee.officialTitle}
       </p>
 
       {/* Cost Center */}
-      <p className="text-sm text-gray-600 mt-2 truncate w-56" title={employee.costCenter}>
+      <p className="text-sm text-gray-600 mt-2 truncate w-56">
         {employee.costCenter}
       </p>
 
@@ -66,11 +135,11 @@ function EmployeeCard({ employee }: { employee: any }) {
       <div className="w-10 border-b-2 border-gray-300 my-3"></div>
 
       {/* Skills */}
-      <div className="text-sm text-gray-700 mt-2 w-56 truncate" title={employee.businessSkills}>
+      <div className="text-sm text-gray-700 mt-2 w-56 truncate">
         <strong className="text-gray-800">Business Skills:</strong> {employee.businessSkills}
       </div>
 
-      <div className="text-sm text-gray-700 mt-2 w-56 truncate" title={employee.technologySkills}>
+      <div className="text-sm text-gray-700 mt-2 w-56 truncate">
         <strong className="text-gray-800">Tech Skills:</strong> {employee.technologySkills}
       </div>
 
@@ -86,6 +155,7 @@ function EmployeeCard({ employee }: { employee: any }) {
     </div>
   );
 }
+
 
 export function SkillSearchSection() {
   const [input, setInput] = useState<string>("");
