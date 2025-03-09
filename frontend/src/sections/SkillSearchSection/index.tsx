@@ -23,13 +23,17 @@ export default function SkillSearchSection() {
         setLoading(true);
         
         console.log(`process.env.NEXT_PUBLIC_BACKEND_URL: ${process.env.NEXT_PUBLIC_BACKEND_URL}`);
+        console.log("test")
 
         try {
+        
             const response = await fetch(`${API_URL}/search`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ skills }),
             });
+            console.log(response);
+            console.log(response.json()); 
 
             if (response.ok) {
                 const data = await response.json();

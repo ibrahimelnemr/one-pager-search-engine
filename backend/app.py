@@ -25,6 +25,9 @@ def search():
     
     results = ss.query(first_skill)
     
+    print("search() - Results obtained")
+    print(jsonify(results))
+    
     return jsonify(results)
 
 if __name__ == '__main__':

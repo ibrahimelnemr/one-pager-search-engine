@@ -11,6 +11,8 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install dependencies
+RUN echo "Starting the build..."
+RUN python -c "print('Hello from inside Docker build')"
 RUN pip install -r requirements.txt
 
 # Copy the rest of the backend code
