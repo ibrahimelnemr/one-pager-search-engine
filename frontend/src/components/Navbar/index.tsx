@@ -3,9 +3,8 @@ import Image from "next/image";
 
 export default function Navbar({ companyName }: { companyName: string }) {
     const navbarItems: { name: string; url: string }[] = [
-        { name: "Search by Skill", url: "/skill-search" },
-        { name: "Browse", url: "/browse" },
-        { name: "Home", url: "/" }
+        { name: "AI Search", url: "/ai-search" },
+        { name: "Basic Search", url: "/search" },
     ];
 
     return (
