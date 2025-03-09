@@ -2,38 +2,20 @@ import { API_URL } from "@/data/ApiData";
 import React, { useState } from "react";
 
 export default function SkillSearchSection() {
-    const [skills, setSkills] = useState<string[]>([]);
     const [input, setInput] = useState<string>("");
     const [employees, setEmployees] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
 
-
-    const addSkill = () => {
-        if (input.trim() && !skills.includes(input.trim())) {
-            setSkills([...skills, input.trim()]);
-            setInput("");
-        }
-    };
-
-    const removeSkill = (skillToRemove: string) => {
-        setSkills(skills.filter((skill) => skill !== skillToRemove));
-    };
-
     const handleSubmit = async () => {
-        setLoading(true);
-        
-        console.log(`process.env.NEXT_PUBLIC_BACKEND_URL: ${process.env.NEXT_PUBLIC_BACKEND_URL}`);
-        console.log("test")
+        if (!input.trim()) return; // Prevent empty submissions
 
+        setLoading(true);
         try {
-        
             const response = await fetch(`${API_URL}/search`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ skills }),
+                body: JSON.stringify({ skills: input.trim() }), // Send as a single string
             });
-            console.log(response);
-            console.log(response.json()); 
 
             if (response.ok) {
                 const data = await response.json();
@@ -42,7 +24,7 @@ export default function SkillSearchSection() {
                 console.error("Failed to fetch employees");
             }
         } catch (error) {
-            console.log("Error fetching employees", error);
+            console.error("Error fetching employees", error);
         }
         setLoading(false);
     };
@@ -63,43 +45,17 @@ export default function SkillSearchSection() {
                     className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg"
                 />
                 <button
-                    onClick={addSkill}
+                    onClick={handleSubmit}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
                 >
-                    Add
+                    Search
                 </button>
             </div>
-
-            {/* Skills List */}
-            <div className="flex flex-wrap gap-3 mb-6">
-                {skills.map((skill) => (
-                    <div
-                        key={skill}
-                        className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full flex items-center shadow-sm text-lg"
-                    >
-                        {skill}
-                        <button
-                            onClick={() => removeSkill(skill)}
-                            className="ml-2 text-red-600 font-bold hover:text-red-800 transition"
-                        >
-                            ×
-                        </button>
-                    </div>
-                ))}
-            </div>
-
-            {/* Submit Button */}
-            <button
-                onClick={handleSubmit}
-                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg w-full transition font-semibold shadow-md text-lg"
-            >
-                Search
-            </button>
 
             {/* Loading Spinner */}
             {loading && (
                 <div className="flex justify-center mt-6">
-                    <div className="w-10 h-10 border-4 border-green-500 border-t-transparent rounded-full animate-spin"></div>
+                    <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
                 </div>
             )}
 

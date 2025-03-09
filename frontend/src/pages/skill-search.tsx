@@ -1,5 +1,5 @@
 import BaseLayout from "@/layouts/BaseLayout";
-import SkillSearchSection from "@/sections/SkillSearchSection";
+import SkillSearchSection from "@/components/SkillSearchSection";
 
 export default function SkillsSearchPage() {
     return(
