@@ -1,17 +1,26 @@
 # Overview
 
+# Test locally
 
-# Setup
-
-## 0 - backend setup
-
-download the model file
+To test backend locally
 
 `cd backend`
 
 `cd bert-base-uncased`
 
 `wget -O pytorch_model.bin 'https://huggingface.co/google-bert/bert-base-uncased/resolve/main/pytorch_model.bin?download=true'`
+
+`cd ..`
+
+`source venv/bin/activate`
+
+`pip install -r requirements.txt`
+
+`python app.py`
+
+# Setup
+
+
 
 ## 1 - Build docker images
 
