@@ -5,7 +5,9 @@ import { API_URL } from "@/data/ApiData";
 export function BrowseSection() {
   const [techSkillFilter, setTechSkillFilter] = useState("");
   const [industryFilter, setIndustryFilter] = useState("");
-  const [summaryFilter, setSummaryFilter] = useState("");
+  const [officialTitleFilter, setOfficialTitleFilter] = useState("");
+  const [nameFilter, setNameFilter] = useState("");
+  const [certificateFilter, setCertificateFilter] = useState("");
 
   // Filter employees based on input values
   const filteredEmployees = MockOnePagerData.filter((employee) => {
@@ -18,10 +20,16 @@ export function BrowseSection() {
         employee.industryExperience
           .toLowerCase()
           .includes(industryFilter.toLowerCase())) &&
-      (!summaryFilter ||
-        employee.summaryOfProfessionalExperience
+      (!officialTitleFilter ||
+        employee.officialTitle
           .toLowerCase()
-          .includes(summaryFilter.toLowerCase()))
+          .includes(officialTitleFilter.toLowerCase())) &&
+      (!nameFilter ||
+        employee.name.toLowerCase().includes(nameFilter.toLowerCase())) &&
+      (!certificateFilter ||
+        employee.certificates
+          .toLowerCase()
+          .includes(certificateFilter.toLowerCase()))
     );
   });
 
@@ -47,9 +55,19 @@ export function BrowseSection() {
           onChange={setIndustryFilter}
         />
         <SearchBar
-          placeholder="Filter by Summary of Experience..."
-          value={summaryFilter}
-          onChange={setSummaryFilter}
+          placeholder="Filter by Official Title..."
+          value={officialTitleFilter}
+          onChange={setOfficialTitleFilter}
+        />
+        <SearchBar
+          placeholder="Filter by Name..."
+          value={nameFilter}
+          onChange={setNameFilter}
+        />
+        <SearchBar
+          placeholder="Filter by Certificates..."
+          value={certificateFilter}
+          onChange={setCertificateFilter}
         />
       </div>
 
@@ -58,6 +76,8 @@ export function BrowseSection() {
     </Section>
   );
 }
+
+
 
 function SearchBar({
   placeholder,
