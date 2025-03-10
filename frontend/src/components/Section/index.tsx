@@ -3,6 +3,7 @@ import MockOnePagerData from "@/data/MockOnePagerData";
 import { API_URL } from "@/data/ApiData";
 import axios from "axios";
 
+
 export function BrowseSection() {
   const [employees, setEmployees] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -29,7 +30,6 @@ export function BrowseSection() {
     fetchEmployees();
   }, []);
 
-  // Filter employees based on input values
   const filteredEmployees = employees.filter((employee) => {
     return (
       (!techSkillFilter ||
@@ -61,7 +61,6 @@ export function BrowseSection() {
         </h2>
       </div>
 
-      {/* Search Bars */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
         <SearchBar placeholder="Technology Skills" value={techSkillFilter} onChange={setTechSkillFilter} />
         <SearchBar placeholder="Industry Experience" value={industryFilter} onChange={setIndustryFilter} />
@@ -70,7 +69,6 @@ export function BrowseSection() {
         <SearchBar placeholder="Certificates" value={certificateFilter} onChange={setCertificateFilter} />
       </div>
 
-      {/* Loading Spinner */}
       {loading ? (
         <div className="flex justify-center mt-6">
           <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
@@ -146,15 +144,7 @@ export function SkillSearchSection() {
 }
 
 // Components
-function SearchBar({
-  placeholder,
-  value,
-  onChange,
-}: {
-  placeholder: string;
-  value: string;
-  onChange: (value: string) => void;
-}) {
+function SearchBar({ placeholder, value, onChange }: { placeholder: string; value: string; onChange: (value: string) => void; }) {
   return (
     <div className="relative flex w-full">
       <input
@@ -193,40 +183,81 @@ function EmployeeList({ employees }: { employees: any[] }) {
 }
 
 function EmployeeCard({ employee }: { employee: any }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
   return (
-    <div className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 hover:border-gray-300">
-      {/* Profile Image */}
-      <div className="relative w-28 h-28">
-        <img
-          src={employee.profileImage}
-          alt={employee.name}
-          className="w-28 h-28 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
-        />
-      </div>
-
-      {/* Name and Title */}
-      <h3 className="text-xl font-semibold mt-4 text-gray-900">{employee.name}</h3>
-      <p className="text-md text-gray-500 mt-1">{employee.officialTitle}</p>
-
-      {/* Skills */}
-      <div className="mt-4">
-        <p className="text-sm text-gray-600">
-          <strong>Tech Skills:</strong> {employee.technologySkills}
-        </p>
-        <p className="text-sm text-gray-600">
-          <strong>Business Skills:</strong> {employee.businessSkills}
-        </p>
-      </div>
-
-      {/* Profile Link */}
-      <a
-        href={employee.dpnProfileLink}
-        className="mt-5 w-full bg-blue-600 text-white font-semibold text-md py-3 px-6 rounded-xl hover:bg-blue-700 transition duration-300"
-        target="_blank"
-        rel="noopener noreferrer"
+    <>
+      <div 
+        className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 hover:border-gray-300 cursor-pointer"
+        onClick={() => setIsPopupOpen(true)}
       >
-        View Profile
-      </a>
+        <div className="relative w-28 h-28">
+          <img
+            src={employee.profileImage}
+            alt={employee.name}
+            className="w-28 h-28 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
+          />
+        </div>
+
+        <h3 className="text-xl font-semibold mt-4 text-gray-900">{employee.name}</h3>
+        <p className="text-md text-gray-500 mt-1">{employee.officialTitle}</p>
+
+        <div className="mt-4">
+          <p className="text-sm text-gray-600">
+            <strong>Tech Skills:</strong> {employee.technologySkills}
+          </p>
+          <p className="text-sm text-gray-600">
+            <strong>Business Skills:</strong> {employee.businessSkills}
+          </p>
+        </div>
+      </div>
+
+      {isPopupOpen && (
+        <ProfilePopup employee={employee} onClose={() => setIsPopupOpen(false)} />
+      )}
+    </>
+  );
+}
+
+function ProfilePopup({ employee, onClose }: { employee: any; onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative">
+        <button 
+          onClick={onClose}
+          className="absolute top-3 right-3 text-gray-600 hover:text-gray-900"
+        >
+          ✕
+        </button>
+
+        <div className="text-center">
+          <img 
+            src={employee.profileImage} 
+            alt={employee.name} 
+            className="w-24 h-24 rounded-full mx-auto border-4 border-blue-500"
+          />
+          <h2 className="text-2xl font-bold mt-3">{employee.name}</h2>
+          <p className="text-gray-500">{employee.officialTitle}</p>
+        </div>
+
+        <div className="mt-4 space-y-2">
+          <p><strong>Technology Skills:</strong> {employee.technologySkills}</p>
+          <p><strong>Business Skills:</strong> {employee.businessSkills}</p>
+          <p><strong>Industry Experience:</strong> {employee.industryExperience}</p>
+          <p><strong>Certificates:</strong> {employee.certificates}</p>
+        </div>
+
+        <div className="mt-5 text-center">
+          <a 
+            href={employee.dpnProfileLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-600 text-white px-6 py-3 rounded-lg inline-block hover:bg-blue-700 transition font-semibold"
+          >
+            View DPN Profile
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
