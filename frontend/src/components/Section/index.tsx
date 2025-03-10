@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ReactNode } from "react";
 import MockOnePagerData from "@/data/MockOnePagerData";
 import { API_URL } from "@/data/ApiData";
 import axios from "axios";
-
+import Navbar from "../Navbar";
 
 export function BrowseSection() {
   const [employees, setEmployees] = useState<any[]>([]);
@@ -56,8 +56,8 @@ export function BrowseSection() {
   return (
     <Section>
       <div className="text-center mb-10">
-        <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
-          Find the Right Talent
+        <h2 className="text-5xl font-extrabold text-gray-900 dark:text-gray-100 tracking-tight">
+          {/* Basic Search */}
         </h2>
       </div>
 
@@ -106,7 +106,7 @@ export function SkillSearchSection() {
   return (
     <Section>
       <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
-        AI-Powered Search
+        {/* AI Search */}
       </h1>
 
       {/* Search Input */}
@@ -116,7 +116,7 @@ export function SkillSearchSection() {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Enter a skill..."
-          className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
+          className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-4 rounded-lg shadow-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 outline-none"
         />
         <button
           onClick={handleSubmit}
@@ -143,7 +143,6 @@ export function SkillSearchSection() {
   );
 }
 
-// Components
 function SearchBar({ placeholder, value, onChange }: { placeholder: string; value: string; onChange: (value: string) => void; }) {
   return (
     <div className="relative flex w-full">
@@ -152,7 +151,7 @@ function SearchBar({ placeholder, value, onChange }: { placeholder: string; valu
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-white/80 backdrop-blur-md border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 text-gray-900 outline-none"
+        className="w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 p-4 rounded-lg shadow-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500 dark:placeholder-gray-400 text-gray-900 dark:text-gray-100 outline-none"
       />
     </div>
   );
@@ -160,7 +159,7 @@ function SearchBar({ placeholder, value, onChange }: { placeholder: string; valu
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-gray-50 dark:bg-gray-900">
       <div className="max-w-screen-2xl mx-auto">{children}</div>
     </section>
   );
@@ -174,7 +173,7 @@ function EmployeeList({ employees }: { employees: any[] }) {
           <EmployeeCard key={index} employee={employee} />
         ))
       ) : (
-        <p className="text-center text-gray-500 text-lg mt-4 col-span-full">
+        <p className="text-center text-gray-500 dark:text-gray-400 text-lg mt-4 col-span-full">
           No employees match the filters.
         </p>
       )}
@@ -188,7 +187,7 @@ function EmployeeCard({ employee }: { employee: any }) {
   return (
     <>
       <div 
-        className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 cursor-pointer transform hover:scale-105"
+        className="group bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 dark:border-gray-700 cursor-pointer transform hover:scale-105"
         onClick={() => setIsPopupOpen(true)}
       >
         <div className="relative w-28 h-28">
@@ -199,14 +198,14 @@ function EmployeeCard({ employee }: { employee: any }) {
           />
         </div>
 
-        <h3 className="text-xl font-semibold mt-4 text-gray-800">{employee.name}</h3>
-        <p className="text-md text-gray-500 mt-1">{employee.officialTitle}</p>
+        <h3 className="text-xl font-semibold mt-4 text-gray-800 dark:text-gray-100">{employee.name}</h3>
+        <p className="text-md text-gray-500 dark:text-gray-400 mt-1">{employee.officialTitle}</p>
 
         <div className="mt-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             <strong>Tech Skills:</strong> {employee.technologySkills}
           </p>
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 dark:text-gray-400">
             <strong>Business Skills:</strong> {employee.businessSkills}
           </p>
         </div>
@@ -222,10 +221,10 @@ function EmployeeCard({ employee }: { employee: any }) {
 function ProfilePopup({ employee, onClose }: { employee: any; onClose: () => void }) {
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md relative">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md relative">
         <button 
           onClick={onClose}
-          className="absolute top-3 right-3 text-gray-600 hover:text-gray-900"
+          className="absolute top-3 right-3 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100"
         >
           ✕
         </button>
@@ -234,13 +233,13 @@ function ProfilePopup({ employee, onClose }: { employee: any; onClose: () => voi
           <img 
             src={employee.profileImage} 
             alt={employee.name} 
-            className="w-24 h-24 rounded-full mx-auto border-4 border-blue-500"
+            className="w-24 h-24 rounded-full mx-auto "
           />
-          <h2 className="text-2xl font-bold mt-3">{employee.name}</h2>
-          <p className="text-gray-500">{employee.officialTitle}</p>
+          <h2 className="text-2xl font-bold mt-3 text-gray-900 dark:text-gray-100">{employee.name}</h2>
+          <p className="text-gray-500 dark:text-gray-400">{employee.officialTitle}</p>
         </div>
 
-        <div className="mt-4 space-y-2">
+        <div className="mt-4 space-y-2 dark:text-gray-400">
           <p><strong>Technology Skills:</strong> {employee.technologySkills}</p>
           <p><strong>Business Skills:</strong> {employee.businessSkills}</p>
           <p><strong>Industry Experience:</strong> {employee.industryExperience}</p>
@@ -259,5 +258,29 @@ function ProfilePopup({ employee, onClose }: { employee: any; onClose: () => voi
         </div>
       </div>
     </div>
+  );
+}
+
+export function BaseLayout({ children }: { children: ReactNode }) {
+    return (
+        <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-inter">
+            <Navbar companyName="Deloitte"/>
+            <main className="flex-grow flex flex-col container mx-auto py-12">
+                {children}
+            </main>
+            <Footer copyrightText={`© ${new Date().getFullYear()} Deloitte Innovation Hub. All rights reserved.`} />
+        </div>
+    );
+}
+
+export function Footer({ copyrightText }: { copyrightText: string }) {
+  return (
+    <footer className="bg-white dark:bg-gray-800 border-t border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-400 text-sm mt-10">
+      
+      {/* Copyright Section */}
+      <div className="border-t border-gray-300 dark:border-gray-700 py-4 text-center text-gray-500 dark:text-gray-400">
+        {copyrightText}
+      </div>
+    </footer>
   );
 }
