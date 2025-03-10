@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MockOnePagerData from "@/data/MockOnePagerData";
 import { API_URL } from "@/data/ApiData";
+import axios from "axios";
 
 export function BrowseSection() {
+  const [employees, setEmployees] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
   const [techSkillFilter, setTechSkillFilter] = useState("");
   const [industryFilter, setIndustryFilter] = useState("");
   const [officialTitleFilter, setOfficialTitleFilter] = useState("");
   const [nameFilter, setNameFilter] = useState("");
   const [certificateFilter, setCertificateFilter] = useState("");
 
+  useEffect(() => {
+    const fetchEmployees = async () => {
+      try {
+        setLoading(true);
+        const { data } = await axios.get(`${API_URL}/`);
+        setEmployees(data);
+      } catch (error) {
+        console.error("Error fetching employees", error);
+        setEmployees([]); // Fallback to empty state
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchEmployees();
+  }, []);
+
   // Filter employees based on input values
-  const filteredEmployees = MockOnePagerData.filter((employee) => {
+  const filteredEmployees = employees.filter((employee) => {
     return (
       (!techSkillFilter ||
         employee.technologySkills
@@ -35,7 +55,6 @@ export function BrowseSection() {
 
   return (
     <Section>
-      {/* Section Header */}
       <div className="text-center mb-10">
         <h2 className="text-5xl font-extrabold text-gray-900 tracking-tight">
           Find the Right Talent
@@ -44,35 +63,89 @@ export function BrowseSection() {
 
       {/* Search Bars */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-10">
-        <SearchBar
-          placeholder="Technology Skills"
-          value={techSkillFilter}
-          onChange={setTechSkillFilter}
-        />
-        <SearchBar
-          placeholder="Industry Experience"
-          value={industryFilter}
-          onChange={setIndustryFilter}
-        />
-        <SearchBar
-          placeholder="Official Title"
-          value={officialTitleFilter}
-          onChange={setOfficialTitleFilter}
-        />
+        <SearchBar placeholder="Technology Skills" value={techSkillFilter} onChange={setTechSkillFilter} />
+        <SearchBar placeholder="Industry Experience" value={industryFilter} onChange={setIndustryFilter} />
+        <SearchBar placeholder="Official Title" value={officialTitleFilter} onChange={setOfficialTitleFilter} />
         <SearchBar placeholder="Name" value={nameFilter} onChange={setNameFilter} />
-        <SearchBar
-          placeholder="Certificates"
-          value={certificateFilter}
-          onChange={setCertificateFilter}
-        />
+        <SearchBar placeholder="Certificates" value={certificateFilter} onChange={setCertificateFilter} />
       </div>
 
-      {/* Employee List */}
-      <EmployeeList employees={filteredEmployees} />
+      {/* Loading Spinner */}
+      {loading ? (
+        <div className="flex justify-center mt-6">
+          <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      ) : (
+        <EmployeeList employees={filteredEmployees} />
+      )}
     </Section>
   );
 }
 
+// Skill Search Section
+export function SkillSearchSection() {
+  const [input, setInput] = useState<string>("");
+  const [employees, setEmployees] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const handleSubmit = async () => {
+    if (!input.trim()) return;
+
+    setLoading(true);
+    try {
+      const { data } = await axios.get(`${API_URL}/search`, {
+        params: { query: input.trim() },
+      });
+
+      setEmployees(data);
+    } catch (error) {
+      console.error("Error fetching employees", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <Section>
+      <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
+        AI-Powered Search
+      </h1>
+
+      {/* Search Input */}
+      <div className="flex justify-center items-center space-x-4 w-full max-w-3xl mx-auto mb-8">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Enter a skill..."
+          className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
+        />
+        <button
+          onClick={handleSubmit}
+          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
+        >
+          Search
+        </button>
+      </div>
+
+      {/* Loading Spinner */}
+      {loading && (
+        <div className="flex justify-center mt-6">
+          <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+
+      {/* Employees List */}
+      {employees.length > 0 && (
+        <div className="mt-8">
+          <EmployeeList employees={employees} />
+        </div>
+      )}
+    </Section>
+  );
+}
+
+// Components
 function SearchBar({
   placeholder,
   value,
@@ -155,72 +228,5 @@ function EmployeeCard({ employee }: { employee: any }) {
         View Profile
       </a>
     </div>
-  );
-}
-
-export function SkillSearchSection() {
-  const [input, setInput] = useState<string>("");
-  const [employees, setEmployees] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(false);
-
-  const handleSubmit = async () => {
-    if (!input.trim()) return; // Prevent empty submissions
-
-    setLoading(true);
-    try {
-      const response = await fetch(`${API_URL}/search?query=${input.trim()}`, {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setEmployees(data);
-      } else {
-        console.error("Failed to fetch employees");
-      }
-    } catch (error) {
-      console.error("Error fetching employees", error);
-    }
-    setLoading(false);
-  };
-
-  return (
-    <Section>
-      <h1 className="text-5xl font-extrabold text-center text-gray-900 mb-10 tracking-tight">
-        AI-Powered Search
-      </h1>
-
-      {/* Search Input */}
-      <div className="flex justify-center items-center space-x-4 w-full max-w-3xl mx-auto mb-8">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter a skill..."
-          className="w-full border border-gray-300 p-4 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition text-lg placeholder-gray-500"
-        />
-        <button
-          onClick={handleSubmit}
-          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition font-semibold shadow-md text-lg"
-        >
-          Search
-        </button>
-      </div>
-
-      {/* Loading Spinner */}
-      {loading && (
-        <div className="flex justify-center mt-6">
-          <div className="w-10 h-10 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-
-      {/* Employees List */}
-      {employees.length > 0 && (
-        <div className="mt-8">
-          <EmployeeList employees={employees} />
-        </div>
-      )}
-    </Section>
   );
 }
