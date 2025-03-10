@@ -1,5 +1,6 @@
 [
     {
+        "_id": "67ce18db9f36e1ae2511dd4b",
         "username": "jdoe",
         "email": "jdoe@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/jdoe",
@@ -19,6 +20,7 @@
         "selectedClients": "Major US Banks, Fortune 500 Retailers"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd4c",
         "username": "asmith",
         "email": "asmith@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/asmith",
@@ -38,6 +40,7 @@
         "selectedClients": "Leading Telecom Providers, Global Retail Chains"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd4d",
         "username": "mjohnson",
         "email": "mjohnson@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mjohnson",
@@ -57,6 +60,7 @@
         "selectedClients": "Global Investment Firms, Government Agencies"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd4e",
         "username": "rgarcia",
         "email": "rgarcia@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/rgarcia",
@@ -70,12 +74,13 @@
         "industryExperience": "Retail, Logistics, Automotive",
         "education": "MBA in IT Management, Yale University",
         "languages": "English, Italian",
-        "certificates": "AWS Certified Solutions Architect – Professional, Azure Solutions Architect Expert",
+        "certificates": "AWS Certified Solutions Architect \u2013 Professional, Azure Solutions Architect Expert",
         "summaryOfProfessionalExperience": "Rachel is an expert in cloud strategy and infrastructure modernization, helping enterprises transition to cloud-native architectures while optimizing costs and performance.",
         "relevantExperience": "Cloud Solutions Architect, Deloitte\n- Designed and implemented a hybrid cloud architecture for a multinational retailer.\n- Developed automated infrastructure provisioning using Terraform and Kubernetes.",
         "selectedClients": "Automobile Manufacturers, Global Logistics Providers"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd4f",
         "username": "tlee",
         "email": "tlee@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/tlee",
@@ -95,6 +100,7 @@
         "selectedClients": "Fortune 500 Tech Firms, Global Insurance Companies"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd50",
         "username": "mbrown",
         "email": "mbrown@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mbrown",
@@ -114,6 +120,7 @@
         "selectedClients": "Top FinTech Startups, Global SaaS Providers"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd51",
         "username": "williams",
         "email": "williams@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/williams",
@@ -133,6 +140,7 @@
         "selectedClients": "Top 10 Global Banks"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd52",
         "username": "kpatel",
         "email": "kpatel@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/kpatel",
@@ -152,6 +160,7 @@
         "selectedClients": "Global Banks, Major Online Retailers"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd53",
         "username": "jmartinez",
         "email": "jmartinez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/jmartinez",
@@ -171,6 +180,7 @@
         "selectedClients": "Fortune 500 Tech Firms, Leading Online Retailers"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd54",
         "username": "dlopez",
         "email": "dlopez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/dlopez",
@@ -190,6 +200,7 @@
         "selectedClients": "Cryptocurrency Startups, Logistics Giants"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd55",
         "username": "knguyen",
         "email": "knguyen@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/knguyen",
@@ -209,6 +220,7 @@
         "selectedClients": "Federal Government Agencies, Fortune 500 Banks"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd56",
         "username": "lrodriguez",
         "email": "lrodriguez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/lrodriguez",
@@ -228,6 +240,7 @@
         "selectedClients": "Global Retail Brands, Luxury Hotel Chains"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd57",
         "username": "schang",
         "email": "schang@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/schang",
@@ -247,6 +260,7 @@
         "selectedClients": "Streaming Services, Fortune 500 Tech Companies"
     },
     {
+        "_id": "67ce18db9f36e1ae2511dd58",
         "username": "bjackson",
         "email": "bjackson@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/bjackson",
@@ -266,6 +280,7 @@
         "selectedClients": "Healthcare Giants, Fortune 500 Manufacturers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e346",
         "username": "sjones",
         "email": "sjones@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/sjones",
@@ -285,6 +300,7 @@
         "selectedClients": "Government Agencies, Fortune 500 Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e347",
         "username": "rroberts",
         "email": "rroberts@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/rroberts",
@@ -304,6 +320,7 @@
         "selectedClients": "Top Retail Chains, Global Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e348",
         "username": "mgonzalez",
         "email": "mgonzalez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mgonzalez",
@@ -323,6 +340,7 @@
         "selectedClients": "Top Financial Institutions, Global Telecom Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e349",
         "username": "bharris",
         "email": "bharris@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/bharris",
@@ -342,6 +360,7 @@
         "selectedClients": "Top Health Tech Startups, E-commerce Giants"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34a",
         "username": "lclark",
         "email": "lclark@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/lclark",
@@ -361,6 +380,7 @@
         "selectedClients": "Top Financial Institutions, Government Agencies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34b",
         "username": "dwhite",
         "email": "dwhite@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/dwhite",
@@ -380,6 +400,7 @@
         "selectedClients": "Global Energy Companies, Government Institutions"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34c",
         "username": "kanderson",
         "email": "kanderson@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/kanderson",
@@ -399,6 +420,7 @@
         "selectedClients": "Fortune 500 Financial Firms, Leading E-commerce Companies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34d",
         "username": "nroberts",
         "email": "nroberts@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/nroberts",
@@ -418,6 +440,7 @@
         "selectedClients": "National Health Networks, Global Insurers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34e",
         "username": "bthomas",
         "email": "bthomas@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/bthomas",
@@ -437,6 +460,7 @@
         "selectedClients": "Financial Institutions, SaaS Companies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e34f",
         "username": "emartin",
         "email": "emartin@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/emartin",
@@ -456,6 +480,7 @@
         "selectedClients": "Top Telecom Providers, Global Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e350",
         "username": "charris",
         "email": "charris@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/charris",
@@ -475,6 +500,7 @@
         "selectedClients": "Regulatory Bodies, Fortune 500 Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e351",
         "username": "sjones",
         "email": "sjones@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/sjones",
@@ -494,6 +520,7 @@
         "selectedClients": "Top E-commerce Platforms, Global Logistics Companies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e352",
         "username": "arodriguez",
         "email": "arodriguez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/arodriguez",
@@ -513,6 +540,7 @@
         "selectedClients": "Government Institutions, Fortune 500 Insurance Companies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e353",
         "username": "mwhite",
         "email": "mwhite@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mwhite",
@@ -532,6 +560,7 @@
         "selectedClients": "Major Banks, Global Telecom Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e354",
         "username": "dlee",
         "email": "dlee@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/dlee",
@@ -545,12 +574,13 @@
         "industryExperience": "E-commerce, FinTech, EdTech",
         "education": "BSc in Software Engineering, University of California, Berkeley",
         "languages": "English, Korean",
-        "certificates": "AWS Certified Developer – Associate",
+        "certificates": "AWS Certified Developer \u2013 Associate",
         "summaryOfProfessionalExperience": "Daniel specializes in developing scalable web applications and API-driven architectures for digital platforms.",
         "relevantExperience": "Full-Stack Developer, Deloitte\n- Developed a microservices-based e-commerce platform handling high traffic.\n- Led the migration of legacy monolithic applications to serverless architecture.",
         "selectedClients": "Online Marketplaces, FinTech Startups"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e355",
         "username": "jgarcia",
         "email": "jgarcia@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/jgarcia",
@@ -570,6 +600,7 @@
         "selectedClients": "Retail Brands, Federal Agencies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e356",
         "username": "cmoore",
         "email": "cmoore@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/cmoore",
@@ -589,6 +620,7 @@
         "selectedClients": "Global Banks, Healthcare Networks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e357",
         "username": "mwilliams",
         "email": "mwilliams@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mwilliams",
@@ -608,6 +640,7 @@
         "selectedClients": "Top Financial Firms, Healthcare Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e358",
         "username": "akim",
         "email": "akim@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/akim",
@@ -627,6 +660,7 @@
         "selectedClients": "Retail Chains, Major Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e359",
         "username": "lkhan",
         "email": "lkhan@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/lkhan",
@@ -646,6 +680,7 @@
         "selectedClients": "Investment Firms, SaaS Startups"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35a",
         "username": "tpatel",
         "email": "tpatel@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/tpatel",
@@ -665,6 +700,7 @@
         "selectedClients": "HealthTech Firms, Digital Banking Platforms"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35b",
         "username": "snguyen",
         "email": "snguyen@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/snguyen",
@@ -678,12 +714,13 @@
         "industryExperience": "Finance, Healthcare, Retail",
         "education": "MSc in Computer Science, Stanford University",
         "languages": "English, Vietnamese",
-        "certificates": "AWS Certified Solutions Architect – Professional, Azure Solutions Architect Expert",
+        "certificates": "AWS Certified Solutions Architect \u2013 Professional, Azure Solutions Architect Expert",
         "summaryOfProfessionalExperience": "Sophia designs scalable cloud architectures and migration strategies for enterprises transitioning to the cloud.",
         "relevantExperience": "Cloud Architect, Deloitte\n- Designed a hybrid cloud strategy for a Fortune 500 healthcare provider.\n- Implemented Kubernetes-based microservices for a retail client.",
         "selectedClients": "Major Banks, Healthcare Systems"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35c",
         "username": "rthomas",
         "email": "rthomas@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/rthomas",
@@ -703,6 +740,7 @@
         "selectedClients": "Government Agencies, Fortune 500 Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35d",
         "username": "omartinez",
         "email": "omartinez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/omartinez",
@@ -722,6 +760,7 @@
         "selectedClients": "Retail Enterprises, Health Networks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35e",
         "username": "jharris",
         "email": "jharris@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/jharris",
@@ -741,6 +780,7 @@
         "selectedClients": "Tech Startups, Investment Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e35f",
         "username": "mbrown",
         "email": "mbrown@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mbrown",
@@ -760,6 +800,7 @@
         "selectedClients": "Retail Chains, Healthcare Organizations"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e360",
         "username": "klopez",
         "email": "klopez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/klopez",
@@ -779,6 +820,7 @@
         "selectedClients": "FinTech Startups, SaaS Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e361",
         "username": "srodriguez",
         "email": "srodriguez@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/srodriguez",
@@ -798,6 +840,7 @@
         "selectedClients": "Hospitality Chains, SaaS Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e362",
         "username": "achowdhury",
         "email": "achowdhury@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/achowdhury",
@@ -817,6 +860,7 @@
         "selectedClients": "Retail Giants, HealthTech Startups"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e363",
         "username": "khenderson",
         "email": "khenderson@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/khenderson",
@@ -836,6 +880,7 @@
         "selectedClients": "Online Retailers, Financial Institutions"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e364",
         "username": "wlee",
         "email": "wlee@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/wlee",
@@ -849,12 +894,13 @@
         "industryExperience": "Telecom, Healthcare, Finance",
         "education": "MSc in Software Engineering, University of Toronto",
         "languages": "English, Korean",
-        "certificates": "AWS DevOps Engineer – Professional, Certified Kubernetes Administrator (CKA)",
+        "certificates": "AWS DevOps Engineer \u2013 Professional, Certified Kubernetes Administrator (CKA)",
         "summaryOfProfessionalExperience": "William optimizes software development lifecycles through automation and cloud-native technologies.",
         "relevantExperience": "DevOps Engineer, Deloitte\n- Designed scalable CI/CD pipelines for a telecom provider.\n- Automated cloud infrastructure deployment for a healthcare startup.",
         "selectedClients": "Telecom Firms, Cloud-based Startups"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e365",
         "username": "nmorris",
         "email": "nmorris@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/nmorris",
@@ -874,6 +920,7 @@
         "selectedClients": "Investment Firms, Fortune 500 Banks"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e366",
         "username": "zcarter",
         "email": "zcarter@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/zcarter",
@@ -893,6 +940,7 @@
         "selectedClients": "Retail Chains, Logistics Companies"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e367",
         "username": "jjohnson",
         "email": "jjohnson@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/jjohnson",
@@ -912,6 +960,7 @@
         "selectedClients": "FinTech Companies, Logistics Providers"
     },
     {
+        "_id": "67ce3a1c9f36e1ae2511e368",
         "username": "mdavis",
         "email": "mdavis@deloitte.com",
         "dpnProfileLink": "https://people.deloitte/profile/mdavis",
