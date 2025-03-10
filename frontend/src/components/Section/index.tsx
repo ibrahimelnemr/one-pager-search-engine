@@ -188,18 +188,18 @@ function EmployeeCard({ employee }: { employee: any }) {
   return (
     <>
       <div 
-        className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 hover:border-gray-300 cursor-pointer"
+        className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex flex-col items-center text-center w-full max-w-sm mx-auto border border-gray-200 cursor-pointer transform hover:scale-105"
         onClick={() => setIsPopupOpen(true)}
       >
         <div className="relative w-28 h-28">
           <img
             src={employee.profileImage}
             alt={employee.name}
-            className="w-28 h-28 rounded-full border-4 border-blue-500 shadow-md transition-transform duration-300 group-hover:scale-110"
+            className="w-28 h-28 rounded-full shadow-md transition-transform duration-300 group-hover:scale-110"
           />
         </div>
 
-        <h3 className="text-xl font-semibold mt-4 text-gray-900">{employee.name}</h3>
+        <h3 className="text-xl font-semibold mt-4 text-gray-800">{employee.name}</h3>
         <p className="text-md text-gray-500 mt-1">{employee.officialTitle}</p>
 
         <div className="mt-4">
