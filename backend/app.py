@@ -58,8 +58,8 @@ def ss_setup():
     try:
         print("Setting up MongoDB...")
         mongo_client = MongoClient('mongodb+srv://dmaged:pX0YqddPVl4OqGeW@cluster1.zylou.mongodb.net/')
-        db = mongo_client['profile_db']
-        mongo_collection = db['profiles']
+        db = mongo_client['one-pager-data']
+        mongo_collection = db['employees']
         print("✅ MongoDB Connected SUCCESSFULLY")
 
         # Fetch all documents from the collection
