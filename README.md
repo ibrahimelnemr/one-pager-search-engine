@@ -110,17 +110,17 @@ Note that --rm and -v "$(pwd)":/app are to ensure the container is removed after
 
 use link in browser to login; if gcloud is not installed, install with snap
 
-`gcloud config set project <your-gcp-project-id>`
+`gcloud config set project mimetic-codex-453216-q9`
 
 `gcloud services enable run.googleapis.com containerregistry.googleapis.com`
 
-`docker tag ibrahimelnemr/one-pager-search-engine-backend gcr.io/<your-gcp-project-id>/backend`
+`docker tag ibrahimelnemr/one-pager-search-engine-backend gcr.io/mimetic-codex-453216-q9/backend`
 
-`docker tag ibrahimelnemr/one-pager-search-engine-frontend gcr.io/<your-gcp-project-id>/frontend`
+`docker tag ibrahimelnemr/one-pager-search-engine-frontend gcr.io/mimetic-codex-453216-q9/frontend`
 
 `docker tag docker.elastic.co/elasticsearch/elasticsearch:8.17.2 gcr.io/<your-gcp-project-id>/elasticsearch`
 
-`docker push gcr.io/<your-gcp-project-id>/backend`
+`docker push gcr.io/mimetic-codex-453216-q9/backend`
 
 `docker push gcr.io/<your-gcp-project-id>/frontend`
 

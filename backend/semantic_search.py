@@ -123,7 +123,7 @@ class SemanticSearch:
         results_obj = []
         
         for result in results:
-            print(result['_source'])
+            # print(result['_source'])
             results_obj.append({
                 "name": result['_source']['name'],
                 "email": result['_source']['email'],

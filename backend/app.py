@@ -10,8 +10,6 @@ from transformers import BertTokenizer, BertModel
 app = Flask(__name__)
 CORS(app)
 
-USE_CLOUD_ELASTICSEARCH = True
-ELASTICSEARCH_HOST = os.getenv("ELASTICSEARCH_HOST", "http://localhost:9200")
 CACHE_FILE = "profiles_cache.json"  # File to store cached profiles
 
 def load_profiles_from_cache():
@@ -40,11 +38,9 @@ def ss_setup():
     global ss, mongo_collection, mongo_client, profiles_list
 
     # Elasticsearch setup
-    if USE_CLOUD_ELASTICSEARCH:
-        es = Elasticsearch(cloud_id='223d9b37960f435d8e1e0c7aa5e79432:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGJmNDA5NTIwYzM5YjRkYWZiNGZmYzAwYTA3ZjY2MzI5JGQ1MmU3OTkxYmEwZjQ3OWNiZGJmNmY5MDFmNjM3OWNm', 
-                        api_key="b3ZURGZKVUJlZy11VUlNNndrZS06ZWxRSXR1bTZRUHFhRWJycldmdUlfdw==")
-    else:
-        es = Elasticsearch(ELASTICSEARCH_HOST)
+
+    es = Elasticsearch(cloud_id='223d9b37960f435d8e1e0c7aa5e79432:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGJmNDA5NTIwYzM5YjRkYWZiNGZmYzAwYTA3ZjY2MzI5JGQ1MmU3OTkxYmEwZjQ3OWNiZGJmNmY5MDFmNjM3OWNm', 
+                    api_key="b3ZURGZKVUJlZy11VUlNNndrZS06ZWxRSXR1bTZRUHFhRWJycldmdUlfdw==")
     
     try:
         if es.ping():
@@ -113,4 +109,4 @@ if __name__ == '__main__':
     ss_setup()
     print("✅ Semantic Search setup complete")
 
-    app.run(host="0.0.0.0", port=5050, debug=True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
