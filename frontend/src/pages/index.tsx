@@ -1,5 +1,6 @@
-import { BaseLayout } from "@/components/Section";
-import { SkillSearchSection } from "@/components/Section";
+import SkillSearchSection from "@/components/SkillSearchSection";
+import { BaseLayout } from "@/layout/BaseLayout";
+
 
 export default function Index() {
     return(

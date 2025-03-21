@@ -1,5 +1,6 @@
-import { BrowseSection } from "@/components/Section";
-import { BaseLayout } from "@/components/Section";
+import BrowseSection from "@/components/BrowseSection";
+import { BaseLayout } from "@/layout/BaseLayout";
+
 
 export default function Browse() {
     return(
